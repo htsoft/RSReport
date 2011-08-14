@@ -12,11 +12,13 @@
 
 @synthesize startPoint = _startPoint;
 @synthesize endPoint = _endPoint;
+@synthesize lineWidth = _lineWidth;
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        _lineWidth = 1.0;
     }
     
     return self;
@@ -25,6 +27,7 @@
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
     UIBezierPath *bp = [UIBezierPath bezierPath];
+    bp.lineWidth = _lineWidth;
     [bp moveToPoint:_startPoint];
     [bp addLineToPoint:_endPoint];
     [bp stroke];
