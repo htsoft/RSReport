@@ -21,6 +21,7 @@
     self = [super init];
     if (self) {
         _printableItems = [NSMutableArray array];
+        _newPageAfterPrint = NO;
     }
     
     return self;

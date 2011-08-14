@@ -15,8 +15,6 @@
 		A98DC87913F7CD8B00A0BEE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A98DC87713F7CD8B00A0BEE0 /* InfoPlist.strings */; };
 		A98DC87B13F7CD8B00A0BEE0 /* RSReportTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A98DC87A13F7CD8B00A0BEE0 /* RSReportTests.h */; };
 		A98DC87D13F7CD8B00A0BEE0 /* RSReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC87C13F7CD8B00A0BEE0 /* RSReportTests.m */; };
-		A98DC88813F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.h in Headers */ = {isa = PBXBuildFile; fileRef = A98DC88613F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.h */; };
-		A98DC88913F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC88713F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.m */; };
 		A98DC88B13F7CF1C00A0BEE0 /* RSReportDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A98DC88A13F7CF1C00A0BEE0 /* RSReportDelegate.h */; };
 		A98DC88D13F7CF7E00A0BEE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC88C13F7CF7E00A0BEE0 /* CoreGraphics.framework */; };
 		A98DC88F13F7CFC800A0BEE0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC88E13F7CFC800A0BEE0 /* CoreData.framework */; };
@@ -27,6 +25,7 @@
 		A98DC89913F7D17700A0BEE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC89813F7D17700A0BEE0 /* UIKit.framework */; };
 		A98DC89C13F7D29B00A0BEE0 /* RSTextItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */; };
 		A98DC89D13F7D29B00A0BEE0 /* RSTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */; };
+		A9EEEA4C13F820000080F500 /* RSReportMain.h in Headers */ = {isa = PBXBuildFile; fileRef = A9EEEA4B13F820000080F500 /* RSReportMain.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +50,6 @@
 		A98DC87813F7CD8B00A0BEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A98DC87A13F7CD8B00A0BEE0 /* RSReportTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSReportTests.h; sourceTree = "<group>"; };
 		A98DC87C13F7CD8B00A0BEE0 /* RSReportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSReportTests.m; sourceTree = "<group>"; };
-		A98DC88613F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
-		A98DC88713F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		A98DC88A13F7CF1C00A0BEE0 /* RSReportDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSReportDelegate.h; sourceTree = "<group>"; };
 		A98DC88C13F7CF7E00A0BEE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A98DC88E13F7CFC800A0BEE0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -65,6 +62,7 @@
 		A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTextItem.m; sourceTree = "<group>"; };
 		A98DC89E13F7D94700A0BEE0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A98DC8A013F7DAC600A0BEE0 /* GPL-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GPL-LICENSE.txt"; sourceTree = "<group>"; };
+		A9EEEA4B13F820000080F500 /* RSReportMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSReportMain.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +126,6 @@
 		A98DC85E13F7CD8B00A0BEE0 /* RSReport */ = {
 			isa = PBXGroup;
 			children = (
-				A98DC88613F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.h */,
-				A98DC88713F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.m */,
 				A98DC86113F7CD8B00A0BEE0 /* RSReport.h */,
 				A98DC86213F7CD8B00A0BEE0 /* RSReport.m */,
 				A98DC89013F7D05B00A0BEE0 /* RSReportHeader.h */,
@@ -139,6 +135,7 @@
 				A98DC88A13F7CF1C00A0BEE0 /* RSReportDelegate.h */,
 				A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */,
 				A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */,
+				A9EEEA4B13F820000080F500 /* RSReportMain.h */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -178,11 +175,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98DC88813F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.h in Headers */,
 				A98DC88B13F7CF1C00A0BEE0 /* RSReportDelegate.h in Headers */,
 				A98DC89213F7D05C00A0BEE0 /* RSReportHeader.h in Headers */,
 				A98DC89613F7D0BC00A0BEE0 /* RSGenericItem.h in Headers */,
 				A98DC89C13F7D29B00A0BEE0 /* RSTextItem.h in Headers */,
+				A9EEEA4C13F820000080F500 /* RSReportMain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98DC86313F7CD8B00A0BEE0 /* RSReport.m in Sources */,
-				A98DC88913F7CE7D00A0BEE0 /* NSFileManager+DirectoryLocations.m in Sources */,
 				A98DC89313F7D05C00A0BEE0 /* RSReportHeader.m in Sources */,
 				A98DC89713F7D0BC00A0BEE0 /* RSGenericItem.m in Sources */,
 				A98DC89D13F7D29B00A0BEE0 /* RSTextItem.m in Sources */,
@@ -341,7 +337,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OBJROOT = "$(SYMROOT)";
 				SDKROOT = iphoneos;
+				SYMROOT = build;
 			};
 			name = Debug;
 		};
@@ -357,7 +355,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OBJROOT = "$(SYMROOT)";
 				SDKROOT = iphoneos;
+				SYMROOT = build;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -435,6 +435,7 @@
 				A98DC88213F7CD8B00A0BEE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A98DC88313F7CD8B00A0BEE0 /* Build configuration list for PBXNativeTarget "RSReportTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +444,7 @@
 				A98DC88513F7CD8B00A0BEE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

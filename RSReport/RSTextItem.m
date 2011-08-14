@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        _font = [UIFont systemFontOfSize:12];
     }
     
     return self;

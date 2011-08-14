@@ -7,10 +7,21 @@
 //
 
 #import "RSReport.h"
-#import "NSFileManager+DirectoryLocations.h"
 #import "RSReportHeader.h"
 
+enum
+{
+	DirectoryLocationErrorNoPathFound,
+	DirectoryLocationErrorFileExistsAtLocation
+};
+
+NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
+
 @interface RSReport ()
+
+- (NSString *)applicationSupportDirectory;
+- (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask
+                appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
 
 @end
 
@@ -31,7 +42,7 @@
         CFRelease(newUniqueId);
         CFRelease(newUniqueIdString);
         _pageSize = CGRectZero;
-        _documentDirectory = [[NSFileManager defaultManager] applicationSupportDirectory];
+        _documentDirectory = [self applicationSupportDirectory];
     }
     
     return self;
@@ -76,6 +87,7 @@
     
     // Se l'header del report è settato ne esegue quindi la stampa
     if (_reportHeader) {
+        _reportHeader.delegate = self;
         [_reportHeader printHeaderWithContext:_pdfContext];
     }
     
@@ -112,6 +124,116 @@
 
 - (void)updateVPosition:(CGFloat)delta {
     _currentVPosition += delta;
+}
+
+- (NSString *)getFullPathPDFFileName {
+    NSString *nomeFile = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
+    return nomeFile;
+}
+
+- (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
+                           inDomain:(NSSearchPathDomainMask)domainMask
+                appendPathComponent:(NSString *)appendComponent
+                              error:(NSError **)errorOut
+{
+	//
+	// Search for the path
+	//
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+	NSArray* paths = NSSearchPathForDirectoriesInDomains(
+                                                         searchPathDirectory,
+                                                         domainMask,
+                                                         YES);
+	if ([paths count] == 0)
+	{
+		if (errorOut)
+		{
+			NSDictionary *userInfo =
+            [NSDictionary dictionaryWithObjectsAndKeys:
+             NSLocalizedStringFromTable(
+                                        @"No path found for directory in domain.",
+                                        @"Errors",
+                                        nil),
+             NSLocalizedDescriptionKey,
+             [NSNumber numberWithInteger:searchPathDirectory],
+             @"NSSearchPathDirectory",
+             [NSNumber numberWithInteger:domainMask],
+             @"NSSearchPathDomainMask",
+             nil];
+			*errorOut =
+            [NSError 
+             errorWithDomain:DirectoryLocationDomain
+             code:DirectoryLocationErrorNoPathFound
+             userInfo:userInfo];
+		}
+		return nil;
+	}
+	
+	//
+	// Normally only need the first path returned
+	//
+	NSString *resolvedPath = [paths objectAtIndex:0];
+    
+	//
+	// Append the extra path component
+	//
+	if (appendComponent)
+	{
+		resolvedPath = [resolvedPath
+                        stringByAppendingPathComponent:appendComponent];
+	}
+	
+	//
+	// Create the path if it doesn't exist
+	//
+	NSError *error = nil;
+	BOOL success = [fm
+                    createDirectoryAtPath:resolvedPath
+                    withIntermediateDirectories:YES
+                    attributes:nil
+                    error:&error];
+	if (!success) 
+	{
+		if (errorOut)
+		{
+			*errorOut = error;
+		}
+		return nil;
+	}
+	
+	//
+	// If we've made it this far, we have a success
+	//
+	if (errorOut)
+	{
+		*errorOut = nil;
+	}
+	return resolvedPath;
+}
+
+//
+// applicationSupportDirectory
+//
+// Returns the path to the applicationSupportDirectory (creating it if it doesn't
+// exist).
+//
+- (NSString *)applicationSupportDirectory
+{
+	NSString *executableName =
+    [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+	NSError *error;
+	NSString *result =
+    [self
+     findOrCreateDirectory:NSApplicationSupportDirectory
+     inDomain:NSUserDomainMask
+     appendPathComponent:executableName
+     error:&error];
+	if (!result)
+	{
+		NSLog(@"Unable to find or create application support directory:\n%@", error);
+	}
+	return result;
 }
 
 @end

@@ -25,5 +25,6 @@
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;
+- (NSString *)getFullPathPDFFileName;
 
 @end
