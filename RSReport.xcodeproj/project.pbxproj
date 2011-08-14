@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2313F84D86003B5521 /* RSLineItem.h */; };
+		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A98DC85D13F7CD8B00A0BEE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */; };
 		A98DC86313F7CD8B00A0BEE0 /* RSReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC86213F7CD8B00A0BEE0 /* RSReport.m */; };
 		A98DC86B13F7CD8B00A0BEE0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC86A13F7CD8B00A0BEE0 /* SenTestingKit.framework */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
+		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A98DC85913F7CD8B00A0BEE0 /* libRSReport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRSReport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A98DC86013F7CD8B00A0BEE0 /* RSReport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSReport-Prefix.pch"; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */,
 				A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */,
 				A9EEEA4B13F820000080F500 /* RSReportMain.h */,
+				A981DF2313F84D86003B5521 /* RSLineItem.h */,
+				A981DF2413F84D86003B5521 /* RSLineItem.m */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -180,6 +186,7 @@
 				A98DC89613F7D0BC00A0BEE0 /* RSGenericItem.h in Headers */,
 				A98DC89C13F7D29B00A0BEE0 /* RSTextItem.h in Headers */,
 				A9EEEA4C13F820000080F500 /* RSReportMain.h in Headers */,
+				A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +292,7 @@
 				A98DC89313F7D05C00A0BEE0 /* RSReportHeader.m in Sources */,
 				A98DC89713F7D0BC00A0BEE0 /* RSGenericItem.m in Sources */,
 				A98DC89D13F7D29B00A0BEE0 /* RSTextItem.m in Sources */,
+				A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

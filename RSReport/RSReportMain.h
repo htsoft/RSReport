@@ -18,3 +18,4 @@
 #import "RSGenericItem.h"
 #import "RSReportDelegate.h"
 #import "RSTextItem.h"
+#import "RSLineItem.h"

@@ -67,13 +67,13 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     // 5 - Verifica dell'esistenza di un Footer per il Report e sua stampa
     
     // Definisce il nome del file
-    NSString *nomeFile = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
     // Verifica se il file esiste ed eventualmente lo cancella
-    NSError *errore;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:nomeFile])
-        [[NSFileManager defaultManager] removeItemAtPath:nomeFile error:&errore];
+    NSError *error;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fileName])
+        [[NSFileManager defaultManager] removeItemAtPath:fileName error:&error];
     // Quindi crea il file contenente il PDF destinatario
-    if(!UIGraphicsBeginPDFContextToFile(nomeFile, _pageSize, nil))
+    if(!UIGraphicsBeginPDFContextToFile(fileName, _pageSize, nil))
         return NO;
     
     // Esegue quindi le elaborazioni necessarie
@@ -127,8 +127,13 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (NSString *)getFullPathPDFFileName {
-    NSString *nomeFile = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
-    return nomeFile;
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
+    return fileName;
+}
+
+- (NSURL *)getPDFURL {
+    NSURL *returnURL = [NSURL fileURLWithPath:[_documentDirectory stringByAppendingPathComponent:_pdfFileName]];
+    return returnURL;
 }
 
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory

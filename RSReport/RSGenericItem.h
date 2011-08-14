@@ -11,6 +11,8 @@
 @interface RSGenericItem : NSObject
 
 @property (nonatomic, assign) CGRect frame;
+@property (nonatomic, retain) UIColor *strokeColor;
+@property (nonatomic, retain) UIColor *fillColor;
 
 - (void)printItemInContext:(CGContextRef)context;
 

@@ -11,19 +11,23 @@
 @implementation RSGenericItem
 
 @synthesize frame = _frame;
+@synthesize strokeColor = _strokeColor;
+@synthesize fillColor = _fillColor;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        _strokeColor = [UIColor blackColor];
+        _fillColor = [UIColor blackColor];
     }
     
     return self;
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    // Attualmente questa versione non fa nulla
+    [_strokeColor setStroke];
+    [_fillColor setFill];
 }
 
 @end
