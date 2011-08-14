@@ -13,6 +13,8 @@
 
 @synthesize printableItems = _printableItems;
 @synthesize frame = _frame;
+@synthesize delegate = _delegate;
+@synthesize newPageAfterPrint = _newPageAfterPrint;
 
 - (id)init
 {
@@ -28,6 +30,10 @@
     for (RSGenericItem *gi in _printableItems) {
         [gi printItemInContext:context];
     } 
+    if ([self.delegate respondsToSelector:@selector(updateVPosition:)]) 
+        [self.delegate updateVPosition:_frame.size.height];
+    if (_newPageAfterPrint && [self.delegate respondsToSelector:@selector(updateCurrentPage)])
+        [self.delegate updateCurrentPage];
 }
 
 @end

@@ -23,7 +23,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) RSReportHeader *reportHeader;
 
-- (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect) size;
+- (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;
 
 @end

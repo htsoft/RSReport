@@ -16,5 +16,6 @@
 - (void)setCurrentPageNumber:(NSInteger)pageNumber;
 - (NSManagedObjectContext *)getManagedObjectContext;
 - (void)updateCurrentPage;
+- (void)updateVPosition:(CGFloat)delta;
 
 @end

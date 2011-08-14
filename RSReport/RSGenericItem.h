@@ -10,7 +10,7 @@
 
 @interface RSGenericItem : NSObject
 
-@property (nonatomic, assign) CGRect *frame;
+@property (nonatomic, assign) CGRect frame;
 
 - (void)printItemInContext:(CGContextRef)context;
 

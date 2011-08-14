@@ -37,11 +37,11 @@
     return self;
 }
 
-- (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect) size {
+- (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame {
     self = [super init];
     if (self) {
         _pdfFileName = fileName;
-        _pageSize = size;
+        _pageSize = frame;
     }
     
     return self;
@@ -66,7 +66,6 @@
         return NO;
     
     // Esegue quindi le elaborazioni necessarie
-    _currentVPosition = 0;
     _currentPage = 0;
     
     // Avvia la prima pagina
@@ -106,8 +105,13 @@
 }
 
 - (void)updateCurrentPage {
+    _currentVPosition = 0;
     UIGraphicsBeginPDFPage();
     ++_currentPage;    
+}
+
+- (void)updateVPosition:(CGFloat)delta {
+    _currentVPosition += delta;
 }
 
 @end

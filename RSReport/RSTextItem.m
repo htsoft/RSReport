@@ -23,4 +23,13 @@
     return self;
 }
 
+- (void)printItemInContext:(CGContextRef)context {
+    [super printItemInContext:context];
+    
+    CGSize textSize = [_text sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:UILineBreakModeClip];
+    CGRect textRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, textSize.width, textSize.height);
+    [_text drawInRect:textRect withFont:_font];
+}
+
+
 @end
