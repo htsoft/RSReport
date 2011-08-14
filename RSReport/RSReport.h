@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSReportDelegate.h"
 
-@interface RSReport : NSObject
+@class RSReportHeader;
+
+@interface RSReport : NSObject <RSReportDelegate> {
+    CGContextRef _pdfContext;
+    NSString *_documentDirectory;
+    NSInteger _currentPage;
+    NSInteger _currentVPosition;
+}
+
+@property (nonatomic, retain) NSString *pdfFileName;
+@property (nonatomic, assign) CGRect pageSize;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) RSReportHeader *reportHeader;
+
+- (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect) size;
+- (BOOL)makeReport;
 
 @end
