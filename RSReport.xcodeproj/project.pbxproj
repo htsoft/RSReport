@@ -63,6 +63,8 @@
 		A98DC89813F7D17700A0BEE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTextItem.h; sourceTree = "<group>"; };
 		A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTextItem.m; sourceTree = "<group>"; };
+		A98DC89E13F7D94700A0BEE0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		A98DC8A013F7DAC600A0BEE0 /* GPL-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GPL-LICENSE.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,8 @@
 		A98DC84E13F7CD8B00A0BEE0 = {
 			isa = PBXGroup;
 			children = (
+				A98DC8A013F7DAC600A0BEE0 /* GPL-LICENSE.txt */,
+				A98DC89E13F7D94700A0BEE0 /* README */,
 				A98DC85E13F7CD8B00A0BEE0 /* RSReport */,
 				A98DC87413F7CD8B00A0BEE0 /* RSReportTests */,
 				A98DC85B13F7CD8B00A0BEE0 /* Frameworks */,
