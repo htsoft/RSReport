@@ -6,12 +6,9 @@
 //  Copyright 2011 Roberto Scarciello. All rights reserved.
 //
 
+
 #ifndef RSReport_RSReportMain_h
 #define RSReport_RSReportMain_h
-
-
-
-#endif
 
 #import "RSReport.h"
 #import "RSReportHeader.h"
@@ -19,3 +16,9 @@
 #import "RSReportDelegate.h"
 #import "RSTextItem.h"
 #import "RSLineItem.h"
+#import "RSImageItem.h"
+
+
+
+#endif
+
