@@ -11,15 +11,23 @@
 @implementation RSSection
 
 @synthesize delegate = _delegate;
+@synthesize fillColor = _fillColor;
+@synthesize strokeColor = _strokeColor;
+@synthesize frame = _frame;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        _fillColor = [UIColor whiteColor];
+        _strokeColor = [UIColor whiteColor];
     }
     
     return self;
+}
+
+- (void)printSectionWithContext:(CGContextRef)context {
+    // Must be extended with drawings of borders and fill area
 }
 
 @end

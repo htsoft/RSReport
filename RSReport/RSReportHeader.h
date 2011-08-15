@@ -12,9 +12,6 @@
 @interface RSReportHeader : RSSection
 
 @property (nonatomic, retain) NSMutableArray *printableItems;
-@property (nonatomic, assign) CGRect frame;
 @property (assign) BOOL newPageAfterPrint;
-
-- (void)printHeaderWithContext:(CGContextRef)context;
 
 @end

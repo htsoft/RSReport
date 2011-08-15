@@ -88,7 +88,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     // Se l'header del report è settato ne esegue quindi la stampa
     if (_reportHeader) {
         _reportHeader.delegate = self;
-        [_reportHeader printHeaderWithContext:_pdfContext];
+        [_reportHeader printSectionWithContext:_pdfContext];
     }
     
     // Se è settata la sezione del corpo ne esegue la stampa

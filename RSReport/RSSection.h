@@ -12,5 +12,10 @@
 @interface RSSection : NSObject
 
 @property (nonatomic, retain) id<RSReportDelegate> delegate;
+@property (nonatomic, retain) UIColor *strokeColor;
+@property (nonatomic, retain) UIColor *fillColor;
+@property (nonatomic, assign) CGRect frame;
+
+- (void)printSectionWithContext:(CGContextRef)context;
 
 @end
