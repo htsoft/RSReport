@@ -13,7 +13,6 @@
 
 @synthesize printableItems = _printableItems;
 @synthesize frame = _frame;
-@synthesize delegate = _delegate;
 @synthesize newPageAfterPrint = _newPageAfterPrint;
 
 - (id)init

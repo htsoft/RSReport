@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RSReportDelegate.h"
+#import "RSSection.h"
 
-@interface RSReportHeader : NSObject
+@interface RSReportHeader : RSSection
 
-@property (nonatomic, retain) id<RSReportDelegate> delegate;
 @property (nonatomic, retain) NSMutableArray *printableItems;
 @property (nonatomic, assign) CGRect frame;
 @property (assign) BOOL newPageAfterPrint;

@@ -11,6 +11,8 @@
 		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2813F873D7003B5521 /* RSImageItem.h */; };
 		A981DF2B13F873D7003B5521 /* RSImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2913F873D7003B5521 /* RSImageItem.m */; };
+		A981DF2E13F90E66003B5521 /* RSSection.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2C13F90E66003B5521 /* RSSection.h */; };
+		A981DF2F13F90E66003B5521 /* RSSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2D13F90E66003B5521 /* RSSection.m */; };
 		A98DC85D13F7CD8B00A0BEE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */; };
 		A98DC86313F7CD8B00A0BEE0 /* RSReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC86213F7CD8B00A0BEE0 /* RSReport.m */; };
 		A98DC86B13F7CD8B00A0BEE0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC86A13F7CD8B00A0BEE0 /* SenTestingKit.framework */; };
@@ -47,6 +49,8 @@
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
 		A981DF2913F873D7003B5521 /* RSImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSImageItem.m; sourceTree = "<group>"; };
+		A981DF2C13F90E66003B5521 /* RSSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSection.h; sourceTree = "<group>"; };
+		A981DF2D13F90E66003B5521 /* RSSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSection.m; sourceTree = "<group>"; };
 		A98DC85913F7CD8B00A0BEE0 /* libRSReport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRSReport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A98DC86013F7CD8B00A0BEE0 /* RSReport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSReport-Prefix.pch"; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				A981DF2413F84D86003B5521 /* RSLineItem.m */,
 				A981DF2813F873D7003B5521 /* RSImageItem.h */,
 				A981DF2913F873D7003B5521 /* RSImageItem.m */,
+				A981DF2C13F90E66003B5521 /* RSSection.h */,
+				A981DF2D13F90E66003B5521 /* RSSection.m */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -194,6 +200,7 @@
 				A9EEEA4C13F820000080F500 /* RSReportMain.h in Headers */,
 				A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */,
 				A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */,
+				A981DF2E13F90E66003B5521 /* RSSection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +308,7 @@
 				A98DC89D13F7D29B00A0BEE0 /* RSTextItem.m in Sources */,
 				A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */,
 				A981DF2B13F873D7003B5521 /* RSImageItem.m in Sources */,
+				A981DF2F13F90E66003B5521 /* RSSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
