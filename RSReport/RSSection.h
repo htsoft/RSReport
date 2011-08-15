@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RSReportDelegate.h"
+#import "RSTypes.h"
 
 @interface RSSection : NSObject
 
@@ -15,6 +16,8 @@
 @property (nonatomic, retain) UIColor *strokeColor;
 @property (nonatomic, retain) UIColor *fillColor;
 @property (nonatomic, assign) CGRect frame;
+@property (nonatomic, assign) RSBorder bordersToDraw;
+@property (nonatomic, assign) CGFloat borderWidth;
 
 - (void)printSectionWithContext:(CGContextRef)context;
 

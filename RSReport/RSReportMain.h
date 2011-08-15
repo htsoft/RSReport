@@ -18,7 +18,7 @@
 #import "RSLineItem.h"
 #import "RSImageItem.h"
 #import "RSSection.h"
-
+#import "RSTypes.h"
 
 #endif
 
