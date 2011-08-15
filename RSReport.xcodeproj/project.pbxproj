@@ -14,6 +14,8 @@
 		A981DF2E13F90E66003B5521 /* RSSection.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2C13F90E66003B5521 /* RSSection.h */; };
 		A981DF2F13F90E66003B5521 /* RSSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2D13F90E66003B5521 /* RSSection.m */; };
 		A981DF3513F91CC1003B5521 /* RSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF3413F91CC1003B5521 /* RSTypes.h */; };
+		A981DF3813F9CCB6003B5521 /* RSRectangleItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF3613F9CCB6003B5521 /* RSRectangleItem.h */; };
+		A981DF3913F9CCB6003B5521 /* RSRectangleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF3713F9CCB6003B5521 /* RSRectangleItem.m */; };
 		A98DC85D13F7CD8B00A0BEE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */; };
 		A98DC86313F7CD8B00A0BEE0 /* RSReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC86213F7CD8B00A0BEE0 /* RSReport.m */; };
 		A98DC86B13F7CD8B00A0BEE0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC86A13F7CD8B00A0BEE0 /* SenTestingKit.framework */; };
@@ -53,6 +55,8 @@
 		A981DF2C13F90E66003B5521 /* RSSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSection.h; sourceTree = "<group>"; };
 		A981DF2D13F90E66003B5521 /* RSSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSection.m; sourceTree = "<group>"; };
 		A981DF3413F91CC1003B5521 /* RSTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTypes.h; sourceTree = "<group>"; };
+		A981DF3613F9CCB6003B5521 /* RSRectangleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRectangleItem.h; sourceTree = "<group>"; };
+		A981DF3713F9CCB6003B5521 /* RSRectangleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRectangleItem.m; sourceTree = "<group>"; };
 		A98DC85913F7CD8B00A0BEE0 /* libRSReport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRSReport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A98DC86013F7CD8B00A0BEE0 /* RSReport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSReport-Prefix.pch"; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				A981DF2C13F90E66003B5521 /* RSSection.h */,
 				A981DF2D13F90E66003B5521 /* RSSection.m */,
 				A981DF3413F91CC1003B5521 /* RSTypes.h */,
+				A981DF3613F9CCB6003B5521 /* RSRectangleItem.h */,
+				A981DF3713F9CCB6003B5521 /* RSRectangleItem.m */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -205,6 +211,7 @@
 				A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */,
 				A981DF2E13F90E66003B5521 /* RSSection.h in Headers */,
 				A981DF3513F91CC1003B5521 /* RSTypes.h in Headers */,
+				A981DF3813F9CCB6003B5521 /* RSRectangleItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +320,7 @@
 				A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */,
 				A981DF2B13F873D7003B5521 /* RSImageItem.m in Sources */,
 				A981DF2F13F90E66003B5521 /* RSSection.m in Sources */,
+				A981DF3913F9CCB6003B5521 /* RSRectangleItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

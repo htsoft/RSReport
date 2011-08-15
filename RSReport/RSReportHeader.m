@@ -31,6 +31,7 @@
     for (RSGenericItem *gi in _printableItems) {
         [gi printItemInContext:context];
     } 
+
     if ([self.delegate respondsToSelector:@selector(updateVPosition:)]) 
         [self.delegate updateVPosition:self.frame.size.height];
     if (_newPageAfterPrint && [self.delegate respondsToSelector:@selector(updateCurrentPage)])

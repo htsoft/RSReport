@@ -16,6 +16,7 @@
 @synthesize frame = _frame;
 @synthesize bordersToDraw = _bordersToDraw;
 @synthesize borderWidth = _borderWidth;
+@synthesize managedObject = _managedObject;
 
 - (id)init
 {
@@ -68,6 +69,7 @@
         [bp addLineToPoint:CGPointMake(_frame.origin.x+_frame.size.width, _frame.origin.y+_frame.size.height)];
         [bp stroke];        
     }
+
 }
 
 @end
