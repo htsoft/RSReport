@@ -12,12 +12,14 @@
 
 @synthesize fillRect = _fillRect;
 @synthesize lineWidth = _lineWidth;
+@synthesize cornerRadius = _cornerRadius;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _lineWidth = 1.0;
+        _cornerRadius = 0;
     }
     
     return self;
@@ -25,7 +27,7 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
-    UIBezierPath *bp = [UIBezierPath bezierPathWithRect:self.frame];
+    UIBezierPath *bp = [UIBezierPath bezierPathWithRoundedRect:self.frame cornerRadius:_cornerRadius];
     bp.lineWidth = _lineWidth;
     [bp stroke];
     if (_fillRect) {

@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) BOOL fillRect;
 @property (nonatomic, assign) CGFloat lineWidth;
+@property (nonatomic, assign) CGFloat cornerRadius;
 
 @end
