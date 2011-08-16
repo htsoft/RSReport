@@ -25,7 +25,7 @@
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
     if (_image) {
-        [_image drawInRect:self.frame];
+        [_image drawInRect:_absoluteRect];
     }
 }
 

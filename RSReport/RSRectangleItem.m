@@ -27,7 +27,7 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
-    UIBezierPath *bp = [UIBezierPath bezierPathWithRoundedRect:self.frame cornerRadius:_cornerRadius];
+    UIBezierPath *bp = [UIBezierPath bezierPathWithRoundedRect:_absoluteRect cornerRadius:_cornerRadius];
     bp.lineWidth = _lineWidth;
     [bp stroke];
     if (_fillRect) {

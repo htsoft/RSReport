@@ -29,6 +29,8 @@
 - (void)printItemInContext:(CGContextRef)context {
     [_strokeColor setStroke];
     [_fillColor setFill];
+    CGPoint referencePoint = [_delegate getReferenceSectionPoint];
+    _absoluteRect = CGRectMake(_frame.origin.x + referencePoint.x, _frame.origin.y + referencePoint.y, _frame.size.width, _frame.size.height);
 }
 
 @end

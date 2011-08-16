@@ -27,8 +27,8 @@
     [super printItemInContext:context];
     
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGSize textSize = [_text sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:UILineBreakModeClip];
-    CGRect textRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, textSize.width, textSize.height);
+    CGSize textSize = [_text sizeWithFont:_font constrainedToSize:_absoluteRect.size lineBreakMode:UILineBreakModeClip];
+    CGRect textRect = CGRectMake(_absoluteRect.origin.x, _absoluteRect.origin.y, textSize.width, textSize.height);
     [_text drawInRect:textRect withFont:_font];
 }
 

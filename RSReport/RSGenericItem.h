@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "RSSectionDelegate.h"
 
-@interface RSGenericItem : NSObject
+@interface RSGenericItem : NSObject {
+    CGRect _absoluteRect;
+}
 
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, retain) UIColor *strokeColor;
