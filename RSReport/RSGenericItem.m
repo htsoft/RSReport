@@ -14,7 +14,7 @@
 @synthesize strokeColor = _strokeColor;
 @synthesize fillColor = _fillColor;
 @synthesize delegate = _delegate;
-
+@synthesize absoluteRect = _absoluteRect;
 - (id)init
 {
     self = [super init];

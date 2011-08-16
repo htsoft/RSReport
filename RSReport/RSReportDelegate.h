@@ -17,5 +17,6 @@
 - (NSManagedObjectContext *)getManagedObjectContext;
 - (void)updateCurrentPage;
 - (void)updateVPosition:(CGFloat)delta;
+- (BOOL)checkforFrame:(CGRect)frame;
 
 @end

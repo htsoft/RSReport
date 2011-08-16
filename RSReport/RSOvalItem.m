@@ -25,7 +25,7 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
-    UIBezierPath *bp = [UIBezierPath bezierPathWithOvalInRect:_absoluteRect];
+    UIBezierPath *bp = [UIBezierPath bezierPathWithOvalInRect:self.absoluteRect];
     bp.lineWidth = _lineWidth;
     [bp stroke];
     if (_fillRect) {

@@ -11,7 +11,6 @@
 
 @implementation RSBodySection
 
-@synthesize delegate = _delegate;
 @synthesize entityName = _entityName;
 @synthesize sortKey = _sortKey;
 
@@ -26,8 +25,10 @@
 }
 
 - (void)printSectionWithContext:(CGContextRef)context {
+    // Save the original frame
+    CGRect originalFrame = self.frame;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *managedObjectContext = [_delegate getManagedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [self.delegate getManagedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];    
     // Configure the request's entity, and optionally its predicate.
@@ -52,8 +53,11 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:currentSection];
                 NSManagedObject *currentManagedObject = [fetchedController objectAtIndexPath:indexPath];
                 self.managedObject = currentManagedObject;
-
+                // Checks for frame position and eventually update it, drawing PageHeader and PageFooter
+                if(![self.delegate checkforFrame:self.frame])
+                    self.frame = originalFrame;
                 [super printSectionWithContext:context];
+                self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
             }
         }
         

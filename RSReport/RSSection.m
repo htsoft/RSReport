@@ -76,10 +76,7 @@
 
     // Draw the items into the section
     for (RSGenericItem *gi in _printableItems) {
-        if ([gi isKindOfClass:[RSMOTextItem class]]) {
-            RSMOTextItem *moti = (RSMOTextItem *)gi;
-            moti.delegate = self;
-        }
+        gi.delegate = self;
         [gi printItemInContext:context];
     } 
     

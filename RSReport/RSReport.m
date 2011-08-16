@@ -141,6 +141,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     return returnURL;
 }
 
+- (BOOL)checkforFrame:(CGRect)frame {
+    return YES;
+}
+
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
                            inDomain:(NSSearchPathDomainMask)domainMask
                 appendPathComponent:(NSString *)appendComponent
