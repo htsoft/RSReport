@@ -19,6 +19,7 @@
 @property (nonatomic, assign) RSBorder bordersToDraw;
 @property (nonatomic, assign) CGFloat borderWidth;
 @property (nonatomic, retain) NSManagedObject *managedObject;
+@property (nonatomic, retain) NSMutableArray *printableItems;
 
 - (void)printSectionWithContext:(CGContextRef)context;
 

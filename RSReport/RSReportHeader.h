@@ -12,6 +12,5 @@
 @interface RSReportHeader : RSSection
 
 @property (assign) BOOL newPageAfterPrint;
-@property (nonatomic, retain) NSMutableArray *printableItems;
 
 @end

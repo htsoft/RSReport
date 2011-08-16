@@ -7,6 +7,7 @@
 //
 
 #import "RSSection.h"
+#import "RSGenericItem.h"
 
 @implementation RSSection
 
@@ -17,6 +18,7 @@
 @synthesize bordersToDraw = _bordersToDraw;
 @synthesize borderWidth = _borderWidth;
 @synthesize managedObject = _managedObject;
+@synthesize printableItems = _printableItems;
 
 - (id)init
 {
@@ -25,6 +27,7 @@
         _fillColor = [UIColor whiteColor];
         _strokeColor = [UIColor blackColor];
         _borderWidth = 1.0;
+        _printableItems = [NSMutableArray array];
     }
     
     return self;
@@ -70,6 +73,13 @@
         [bp stroke];        
     }
 
+    // Draw the items into the section
+    for (RSGenericItem *gi in _printableItems) {
+        [gi printItemInContext:context];
+    } 
+    
+    if ([self.delegate respondsToSelector:@selector(updateVPosition:)]) 
+        [self.delegate updateVPosition:self.frame.size.height];
 }
 
 @end
