@@ -32,5 +32,4 @@
     [_text drawInRect:textRect withFont:_font];
 }
 
-
 @end

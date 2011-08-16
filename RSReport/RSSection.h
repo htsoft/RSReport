@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "RSReportDelegate.h"
 #import "RSTypes.h"
+#import "RSSectionDelegate.h"
 
-@interface RSSection : NSObject
+@interface RSSection : NSObject <RSSectionDelegate>
 
 @property (nonatomic, retain) id<RSReportDelegate> delegate;
 @property (nonatomic, retain) UIColor *strokeColor;

@@ -20,6 +20,9 @@
 		A981DF3D13F9D102003B5521 /* RSOvalItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF3B13F9D102003B5521 /* RSOvalItem.m */; };
 		A981DF4013F9D307003B5521 /* RSBodySection.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF3E13F9D306003B5521 /* RSBodySection.h */; };
 		A981DF4113F9D307003B5521 /* RSBodySection.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF3F13F9D306003B5521 /* RSBodySection.m */; };
+		A981DF4513FA6491003B5521 /* RSSectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF4413FA6491003B5521 /* RSSectionDelegate.h */; };
+		A981DF4813FA652A003B5521 /* RSMOTextItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF4613FA652A003B5521 /* RSMOTextItem.h */; };
+		A981DF4913FA652A003B5521 /* RSMOTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF4713FA652A003B5521 /* RSMOTextItem.m */; };
 		A98DC85D13F7CD8B00A0BEE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */; };
 		A98DC86313F7CD8B00A0BEE0 /* RSReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC86213F7CD8B00A0BEE0 /* RSReport.m */; };
 		A98DC86B13F7CD8B00A0BEE0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98DC86A13F7CD8B00A0BEE0 /* SenTestingKit.framework */; };
@@ -65,6 +68,9 @@
 		A981DF3B13F9D102003B5521 /* RSOvalItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSOvalItem.m; sourceTree = "<group>"; };
 		A981DF3E13F9D306003B5521 /* RSBodySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBodySection.h; sourceTree = "<group>"; };
 		A981DF3F13F9D306003B5521 /* RSBodySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBodySection.m; sourceTree = "<group>"; };
+		A981DF4413FA6491003B5521 /* RSSectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSectionDelegate.h; sourceTree = "<group>"; };
+		A981DF4613FA652A003B5521 /* RSMOTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOTextItem.h; sourceTree = "<group>"; };
+		A981DF4713FA652A003B5521 /* RSMOTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOTextItem.m; sourceTree = "<group>"; };
 		A98DC85913F7CD8B00A0BEE0 /* libRSReport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRSReport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98DC85C13F7CD8B00A0BEE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A98DC86013F7CD8B00A0BEE0 /* RSReport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSReport-Prefix.pch"; sourceTree = "<group>"; };
@@ -175,6 +181,9 @@
 				A981DF3B13F9D102003B5521 /* RSOvalItem.m */,
 				A981DF3E13F9D306003B5521 /* RSBodySection.h */,
 				A981DF3F13F9D306003B5521 /* RSBodySection.m */,
+				A981DF4413FA6491003B5521 /* RSSectionDelegate.h */,
+				A981DF4613FA652A003B5521 /* RSMOTextItem.h */,
+				A981DF4713FA652A003B5521 /* RSMOTextItem.m */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -226,6 +235,8 @@
 				A981DF3813F9CCB6003B5521 /* RSRectangleItem.h in Headers */,
 				A981DF3C13F9D102003B5521 /* RSOvalItem.h in Headers */,
 				A981DF4013F9D307003B5521 /* RSBodySection.h in Headers */,
+				A981DF4513FA6491003B5521 /* RSSectionDelegate.h in Headers */,
+				A981DF4813FA652A003B5521 /* RSMOTextItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +348,7 @@
 				A981DF3913F9CCB6003B5521 /* RSRectangleItem.m in Sources */,
 				A981DF3D13F9D102003B5521 /* RSOvalItem.m in Sources */,
 				A981DF4113F9D307003B5521 /* RSBodySection.m in Sources */,
+				A981DF4913FA652A003B5521 /* RSMOTextItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

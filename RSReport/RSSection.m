@@ -82,4 +82,8 @@
         [self.delegate updateVPosition:self.frame.size.height];
 }
 
+- (NSManagedObject *)getManagedObject {
+    return _managedObject;
+}
+
 @end
