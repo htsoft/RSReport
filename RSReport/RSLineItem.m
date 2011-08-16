@@ -28,8 +28,9 @@
     [super printItemInContext:context];
     UIBezierPath *bp = [UIBezierPath bezierPath];
     bp.lineWidth = _lineWidth;
-    [bp moveToPoint:CGPointMake(_startPoint.x+_absoluteRect.origin.x, _startPoint.y+_absoluteRect.origin.y)];
-    [bp addLineToPoint:CGPointMake(_endPoint.x+_absoluteRect.origin.x, _endPoint.y+_absoluteRect.origin.y)];
+    CGPoint referencePoint = [self.delegate getReferenceSectionPoint];
+    [bp moveToPoint:CGPointMake(_startPoint.x+referencePoint.x, _startPoint.y+referencePoint.y)];
+    [bp addLineToPoint:CGPointMake(_endPoint.x+referencePoint.x, _endPoint.y+referencePoint.y)];
     [bp stroke];
 }
 
