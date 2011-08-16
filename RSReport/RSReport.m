@@ -8,6 +8,7 @@
 
 #import "RSReport.h"
 #import "RSReportHeader.h"
+#import "RSBodySection.h"
 
 enum
 {
@@ -31,6 +32,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 @synthesize pageSize = _pageSize;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize reportHeader = _reportHeader;
+@synthesize bodySection = _bodySection;
 
 - (id)init
 {
@@ -92,7 +94,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     }
     
     // Se è settata la sezione del corpo ne esegue la stampa
-    
+    if (_bodySection) {
+        _bodySection.delegate = self;
+        [_bodySection printSectionWithContext:_pdfContext];
+    }
     
     // Se è settato il footer del report ne esegue la stampa
     

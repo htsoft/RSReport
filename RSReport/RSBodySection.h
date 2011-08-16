@@ -12,6 +12,7 @@
 @interface RSBodySection : RSSection
 
 @property (nonatomic, retain) id<RSReportDelegate> delegate;
-@property (nonatomic, retain) NSMutableArray *printableItems;
+@property (nonatomic, retain) NSString *entityName;
+@property (nonatomic, retain) NSString *sortKey;
 
 @end

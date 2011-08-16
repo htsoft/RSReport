@@ -10,7 +10,6 @@
 
 @implementation RSMOTextItem
 
-@synthesize delegate = _delegate;
 @synthesize attribute = _attribute;
 
 - (id)init
@@ -24,7 +23,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[_delegate getManagedObject] valueForKey:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKey:_attribute];
     if ([value isKindOfClass:[NSString class]])
         self.text = (NSString *)value;
     [super printItemInContext:context];

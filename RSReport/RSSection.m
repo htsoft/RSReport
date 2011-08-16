@@ -8,6 +8,7 @@
 
 #import "RSSection.h"
 #import "RSGenericItem.h"
+#import "RSMOTextItem.h"
 
 @implementation RSSection
 
@@ -75,6 +76,10 @@
 
     // Draw the items into the section
     for (RSGenericItem *gi in _printableItems) {
+        if ([gi isKindOfClass:[RSMOTextItem class]]) {
+            RSMOTextItem *moti = (RSMOTextItem *)gi;
+            moti.delegate = self;
+        }
         [gi printItemInContext:context];
     } 
     
@@ -84,6 +89,10 @@
 
 - (NSManagedObject *)getManagedObject {
     return _managedObject;
+}
+
+- (CGPoint)getReferenceSectionPoint {
+    return _frame.origin;
 }
 
 @end

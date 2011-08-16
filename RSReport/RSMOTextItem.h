@@ -7,11 +7,9 @@
 //
 
 #import "RSTextItem.h"
-#import "RSSectionDelegate.h"
 
 @interface RSMOTextItem : RSTextItem
 
-@property (nonatomic, retain) id<RSSectionDelegate> delegate;
 @property (nonatomic, retain) NSString *attribute;
 
 @end

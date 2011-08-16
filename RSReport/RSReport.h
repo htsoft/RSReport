@@ -10,6 +10,7 @@
 #import "RSReportDelegate.h"
 
 @class RSReportHeader;
+@class RSBodySection;
 
 @interface RSReport : NSObject <RSReportDelegate> {
     CGContextRef _pdfContext;
@@ -22,6 +23,7 @@
 @property (nonatomic, assign) CGRect pageSize;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) RSReportHeader *reportHeader;
+@property (nonatomic, retain) RSBodySection *bodySection;
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;

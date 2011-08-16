@@ -13,6 +13,7 @@
 @synthesize frame = _frame;
 @synthesize strokeColor = _strokeColor;
 @synthesize fillColor = _fillColor;
+@synthesize delegate = _delegate;
 
 - (id)init
 {

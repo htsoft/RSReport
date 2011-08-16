@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSSectionDelegate.h"
 
 @interface RSGenericItem : NSObject
 
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, retain) UIColor *strokeColor;
 @property (nonatomic, retain) UIColor *fillColor;
+@property (nonatomic, retain) id<RSSectionDelegate> delegate;
 
 - (void)printItemInContext:(CGContextRef)context;
 
