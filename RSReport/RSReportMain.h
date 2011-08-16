@@ -19,6 +19,11 @@
 #import "RSImageItem.h"
 #import "RSSection.h"
 #import "RSTypes.h"
+#import "RSRectangleItem.h"
+#import "RSOvalItem.h"
+#import "RSBodySection.h"
+#import "RSSectionDelegate.h"
+#import "RSMOTextItem.h"
 
 #endif
 
