@@ -26,6 +26,9 @@
     NSObject *value = [[self.delegate getManagedObject] valueForKey:_attribute];
     if ([value isKindOfClass:[NSString class]])
         self.text = (NSString *)value;
+    if ([value isKindOfClass:[NSNumber class]]) {
+        self.text = [((NSNumber *)value) stringValue];
+    }
     [super printItemInContext:context];
 }
 
