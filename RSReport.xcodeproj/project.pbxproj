@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A93574A513FE2DCE0087418D /* RSMOBoolItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A93574A313FE2DCE0087418D /* RSMOBoolItem.h */; };
+		A93574A613FE2DCE0087418D /* RSMOBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A93574A413FE2DCE0087418D /* RSMOBoolItem.m */; };
 		A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2313F84D86003B5521 /* RSLineItem.h */; };
 		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2813F873D7003B5521 /* RSImageItem.h */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A93574A313FE2DCE0087418D /* RSMOBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOBoolItem.h; sourceTree = "<group>"; };
+		A93574A413FE2DCE0087418D /* RSMOBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOBoolItem.m; sourceTree = "<group>"; };
 		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				A981DF4413FA6491003B5521 /* RSSectionDelegate.h */,
 				A981DF4613FA652A003B5521 /* RSMOTextItem.h */,
 				A981DF4713FA652A003B5521 /* RSMOTextItem.m */,
+				A93574A313FE2DCE0087418D /* RSMOBoolItem.h */,
+				A93574A413FE2DCE0087418D /* RSMOBoolItem.m */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
@@ -237,6 +243,7 @@
 				A981DF4013F9D307003B5521 /* RSBodySection.h in Headers */,
 				A981DF4513FA6491003B5521 /* RSSectionDelegate.h in Headers */,
 				A981DF4813FA652A003B5521 /* RSMOTextItem.h in Headers */,
+				A93574A513FE2DCE0087418D /* RSMOBoolItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +356,7 @@
 				A981DF3D13F9D102003B5521 /* RSOvalItem.m in Sources */,
 				A981DF4113F9D307003B5521 /* RSBodySection.m in Sources */,
 				A981DF4913FA652A003B5521 /* RSMOTextItem.m in Sources */,
+				A93574A613FE2DCE0087418D /* RSMOBoolItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,7 @@
 #import "RSBodySection.h"
 #import "RSSectionDelegate.h"
 #import "RSMOTextItem.h"
+#import "RSMOBoolItem.h"
 
 #endif
 
