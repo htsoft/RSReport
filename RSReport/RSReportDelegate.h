@@ -10,8 +10,6 @@
 
 @protocol RSReportDelegate <NSObject>
 
-@optional
-
 - (NSInteger)getCurrentPageNumber;
 - (void)setCurrentPageNumber:(NSInteger)pageNumber;
 - (NSManagedObjectContext *)getManagedObjectContext;

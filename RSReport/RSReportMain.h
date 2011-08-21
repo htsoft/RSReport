@@ -25,6 +25,8 @@
 #import "RSSectionDelegate.h"
 #import "RSMOTextItem.h"
 #import "RSMOBoolItem.h"
+#import "RSPageHeader.h"
+#import "RSPageFooter.h"
 
 #endif
 

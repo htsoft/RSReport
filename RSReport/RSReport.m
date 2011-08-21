@@ -9,6 +9,8 @@
 #import "RSReport.h"
 #import "RSReportHeader.h"
 #import "RSBodySection.h"
+#import "RSPageFooter.h"
+#import "RSPageHeader.h"
 
 enum
 {
@@ -33,6 +35,8 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize reportHeader = _reportHeader;
 @synthesize bodySection = _bodySection;
+@synthesize pageHeader = _pageHeader;
+@synthesize pageFooter = _pageFooter;
 
 - (id)init
 {
@@ -61,51 +65,52 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (BOOL)makeReport {
-    // Struttura della funzione
-    // 1 - Verifica dell'esistenza del file ed eventuale cancellazione
-    // 2 - Creazione del context del file 
-    // 3 - Verifica dell'esistenza di un Header per il Report e sua stampa
-    // 4 - Stampa del corpo (che stampa header pagina e footer pagina)
-    // 5 - Verifica dell'esistenza di un Footer per il Report e sua stampa
-    
-    // Definisce il nome del file
+    // File name definition
     NSString *fileName = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
-    // Verifica se il file esiste ed eventualmente lo cancella
+    // If already exists then delete
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName])
         [[NSFileManager defaultManager] removeItemAtPath:fileName error:&error];
-    // Quindi crea il file contenente il PDF destinatario
+    // PDF file creation
     if(!UIGraphicsBeginPDFContextToFile(fileName, _pageSize, nil))
         return NO;
     
-    // Esegue quindi le elaborazioni necessarie
+    // Begin operations
     _currentPage = 0;
     
-    // Avvia la prima pagina
+    // Obtain current context for PDF file
+    _pdfContext = UIGraphicsGetCurrentContext();
+
+    // Start first page
+    if (_pageHeader)
+        _pageHeader.delegate = self;
+    if (_pageFooter)
+        _pageFooter.delegate = self;
+    
     [self updateCurrentPage];
     
-    // Estrae il context del PDF in modo da passarlo a tutte le funzioni richiamate
-    _pdfContext = UIGraphicsGetCurrentContext();
     
-    // Se l'header del report è settato ne esegue quindi la stampa
+    // if Report header is assigned the draw it
     if (_reportHeader) {
         _reportHeader.delegate = self;
         [_reportHeader printSectionWithContext:_pdfContext];
     }
     
-    // Se è settata la sezione del corpo ne esegue la stampa
+    // 
+    
+    // If Body is assigned the draw it
     if (_bodySection) {
         _bodySection.delegate = self;
         [_bodySection printSectionWithContext:_pdfContext];
     }
     
-    // Se è settato il footer del report ne esegue la stampa
+    // if Report footer is assigned then draw it
     
     
-    // Chiude il file dopo aver terminato il lavoro
+    // Close the context and the file 
     UIGraphicsEndPDFContext();
     
-    // Indica che l'operazione è perfettamente riuscita
+    // Return YES to confirm the succeeded operation
     return YES;
 }
 
@@ -124,6 +129,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 - (void)updateCurrentPage {
     _currentVPosition = 0;
     UIGraphicsBeginPDFPage();
+    if (_pageHeader) {
+        _pageHeader.delegate = self;
+        [_pageHeader printSectionWithContext:_pdfContext];
+    }
     ++_currentPage;    
 }
 
@@ -142,7 +151,14 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (BOOL)checkforFrame:(CGRect)frame {
-    return YES;
+    // Check if adding the frame.size.height to _currentVPosition, then adds the pagefooter height and if it's grater than 
+    // the size of the page it return NO
+    // Otherwise it return YES
+    double position = _currentVPosition + frame.size.height;
+    if (_pageFooter) {
+        position += _pageFooter.frame.size.height;
+    }
+    return ((position > _pageSize.size.height) ? NO : YES);
 }
 
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory

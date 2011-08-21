@@ -53,9 +53,11 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:currentSection];
                 NSManagedObject *currentManagedObject = [fetchedController objectAtIndexPath:indexPath];
                 self.managedObject = currentManagedObject;
-                // Checks for frame position and eventually update it, drawing PageHeader and PageFooter
-                if(![self.delegate checkforFrame:self.frame])
+                // Check for frame position and eventually update it, drawing PageHeader and PageFooter
+                if (![self.delegate checkforFrame:self.frame]) {
+                    [self.delegate updateCurrentPage];
                     self.frame = originalFrame;
+                }
                 [super printSectionWithContext:context];
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
             }

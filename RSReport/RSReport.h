@@ -11,6 +11,8 @@
 
 @class RSReportHeader;
 @class RSBodySection;
+@class RSPageHeader;
+@class RSPageFooter;
 
 @interface RSReport : NSObject <RSReportDelegate> {
     CGContextRef _pdfContext;
@@ -24,6 +26,8 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) RSReportHeader *reportHeader;
 @property (nonatomic, retain) RSBodySection *bodySection;
+@property (nonatomic, retain) RSPageHeader *pageHeader;
+@property (nonatomic, retain) RSPageFooter *pageFooter;
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;
