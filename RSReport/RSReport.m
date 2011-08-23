@@ -47,7 +47,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
         _pdfFileName = [NSString stringWithFormat:@"%@.pdf",(NSString *)newUniqueIdString];
         CFRelease(newUniqueId);
         CFRelease(newUniqueIdString);
-        _pageSize = CGRectZero;
+        _pageSize = CGRectMake(0, 0, 612, 792);
         _documentDirectory = [self applicationSupportDirectory];
     }
     
