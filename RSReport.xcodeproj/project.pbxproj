@@ -67,7 +67,6 @@
 		A93574B013FEA5F30087418D /* RSPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageHeader.m; sourceTree = "<group>"; };
 		A93574B313FEA60E0087418D /* RSPageFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPageFooter.h; sourceTree = "<group>"; };
 		A93574B413FEA60F0087418D /* RSPageFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageFooter.m; sourceTree = "<group>"; };
-		A967BBD31425C140008CC263 /* LGPL-License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "LGPL-License.rtf"; sourceTree = "<group>"; };
 		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTextItem.h; sourceTree = "<group>"; };
 		A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTextItem.m; sourceTree = "<group>"; };
 		A98DC89E13F7D94700A0BEE0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		A98DC8A013F7DAC600A0BEE0 /* GPL-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GPL-LICENSE.txt"; sourceTree = "<group>"; };
 		A9EEEA4B13F820000080F500 /* RSReportMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSReportMain.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,8 +136,6 @@
 		A98DC84E13F7CD8B00A0BEE0 = {
 			isa = PBXGroup;
 			children = (
-				A967BBD31425C140008CC263 /* LGPL-License.rtf */,
-				A98DC8A013F7DAC600A0BEE0 /* GPL-LICENSE.txt */,
 				A98DC89E13F7D94700A0BEE0 /* README */,
 				A98DC85E13F7CD8B00A0BEE0 /* RSReport */,
 				A98DC87413F7CD8B00A0BEE0 /* RSReportTests */,
