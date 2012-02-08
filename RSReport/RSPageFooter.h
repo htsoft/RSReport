@@ -10,4 +10,6 @@
 
 @interface RSPageFooter : RSSection
 
+@property (nonatomic, assign) BOOL printOnLastPage;
+
 @end

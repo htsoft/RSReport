@@ -161,6 +161,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     return ((position > _pageSize.size.height) ? NO : YES);
 }
 
+- (CGRect)getCurrentPageSize {
+    return _pageSize;
+}
+
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
                            inDomain:(NSSearchPathDomainMask)domainMask
                 appendPathComponent:(NSString *)appendComponent
