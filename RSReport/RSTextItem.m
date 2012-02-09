@@ -12,6 +12,7 @@
 
 @synthesize text = _text;
 @synthesize font = _font;
+@synthesize itemAlignment = _itemAlignment;
 
 - (id)init
 {
@@ -28,7 +29,26 @@
     
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGSize textSize = [_text sizeWithFont:_font constrainedToSize:self.absoluteRect.size lineBreakMode:UILineBreakModeClip];
-    CGRect textRect = CGRectMake(self.absoluteRect.origin.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
+    // Calcola la posizione per l'allineamento
+    CGPoint textPosition = CGPointMake(0, 0);
+    switch (_itemAlignment) {
+        case RSItemAlignLeft:
+            // In caso di allineamento a sinistra non deve compiere alcuna operazione
+            textPosition.x = 0;
+            break;
+        case RSItemAlignCenter:
+            textPosition.x = (self.absoluteRect.size.width - textSize.width)/2;
+            break;
+        case RSItemAlignRight:
+            textPosition.x = self.absoluteRect.size.width - textSize.width;
+            break;
+            
+        default:
+            // Nel caso non sia assegnato nessun valore valido allinea a sinistra
+            textPosition.x = 0;
+            break;
+    }
+    CGRect textRect = CGRectMake(self.absoluteRect.origin.x+textPosition.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
     [_text drawInRect:textRect withFont:_font];
 }
 

@@ -24,6 +24,8 @@
 #import "RSBodySection.h"
 #import "RSSectionDelegate.h"
 #import "RSMOTextItem.h"
+#import "RSMOCurrencyItem.h"
+#import "RSMODateItem.h"
 #import "RSMOBoolItem.h"
 #import "RSPageHeader.h"
 #import "RSPageFooter.h"

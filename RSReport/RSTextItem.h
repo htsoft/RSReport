@@ -12,5 +12,6 @@
 
 @property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) UIFont *font;
+@property (nonatomic, assign) RSItemAlignment itemAlignment;
 
 @end

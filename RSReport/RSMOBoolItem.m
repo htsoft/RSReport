@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        _attribute = nil;
     }
     
     return self;

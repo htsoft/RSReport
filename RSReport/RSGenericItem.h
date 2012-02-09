@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RSSectionDelegate.h"
+#import "RSTypes.h"
 
 @interface RSGenericItem : NSObject
 

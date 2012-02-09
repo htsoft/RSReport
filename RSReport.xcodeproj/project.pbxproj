@@ -13,6 +13,10 @@
 		A93574B213FEA5F30087418D /* RSPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A93574B013FEA5F30087418D /* RSPageHeader.m */; };
 		A93574B513FEA60F0087418D /* RSPageFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A93574B313FEA60E0087418D /* RSPageFooter.h */; };
 		A93574B613FEA60F0087418D /* RSPageFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A93574B413FEA60F0087418D /* RSPageFooter.m */; };
+		A9671A8E14E3248C00A19956 /* RSMOCurrencyItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A9671A8C14E3248B00A19956 /* RSMOCurrencyItem.h */; };
+		A9671A8F14E3248C00A19956 /* RSMOCurrencyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */; };
+		A9671A9914E33AD600A19956 /* RSMODateItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A9671A9714E33AD500A19956 /* RSMODateItem.h */; };
+		A9671A9A14E33AD600A19956 /* RSMODateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9671A9814E33AD500A19956 /* RSMODateItem.m */; };
 		A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2313F84D86003B5521 /* RSLineItem.h */; };
 		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2813F873D7003B5521 /* RSImageItem.h */; };
@@ -67,6 +71,10 @@
 		A93574B013FEA5F30087418D /* RSPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageHeader.m; sourceTree = "<group>"; };
 		A93574B313FEA60E0087418D /* RSPageFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPageFooter.h; sourceTree = "<group>"; };
 		A93574B413FEA60F0087418D /* RSPageFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageFooter.m; sourceTree = "<group>"; };
+		A9671A8C14E3248B00A19956 /* RSMOCurrencyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOCurrencyItem.h; sourceTree = "<group>"; };
+		A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOCurrencyItem.m; sourceTree = "<group>"; };
+		A9671A9714E33AD500A19956 /* RSMODateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMODateItem.h; sourceTree = "<group>"; };
+		A9671A9814E33AD500A19956 /* RSMODateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMODateItem.m; sourceTree = "<group>"; };
 		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
@@ -192,10 +200,14 @@
 				A981DF3E13F9D306003B5521 /* RSBodySection.h */,
 				A981DF3F13F9D306003B5521 /* RSBodySection.m */,
 				A981DF4413FA6491003B5521 /* RSSectionDelegate.h */,
-				A981DF4613FA652A003B5521 /* RSMOTextItem.h */,
-				A981DF4713FA652A003B5521 /* RSMOTextItem.m */,
 				A93574A313FE2DCE0087418D /* RSMOBoolItem.h */,
 				A93574A413FE2DCE0087418D /* RSMOBoolItem.m */,
+				A9671A8C14E3248B00A19956 /* RSMOCurrencyItem.h */,
+				A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */,
+				A9671A9714E33AD500A19956 /* RSMODateItem.h */,
+				A9671A9814E33AD500A19956 /* RSMODateItem.m */,
+				A981DF4613FA652A003B5521 /* RSMOTextItem.h */,
+				A981DF4713FA652A003B5521 /* RSMOTextItem.m */,
 				A93574AF13FEA5F30087418D /* RSPageHeader.h */,
 				A93574B013FEA5F30087418D /* RSPageHeader.m */,
 				A93574B313FEA60E0087418D /* RSPageFooter.h */,
@@ -256,6 +268,8 @@
 				A93574A513FE2DCE0087418D /* RSMOBoolItem.h in Headers */,
 				A93574B113FEA5F30087418D /* RSPageHeader.h in Headers */,
 				A93574B513FEA60F0087418D /* RSPageFooter.h in Headers */,
+				A9671A8E14E3248C00A19956 /* RSMOCurrencyItem.h in Headers */,
+				A9671A9914E33AD600A19956 /* RSMODateItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +385,8 @@
 				A93574A613FE2DCE0087418D /* RSMOBoolItem.m in Sources */,
 				A93574B213FEA5F30087418D /* RSPageHeader.m in Sources */,
 				A93574B613FEA60F0087418D /* RSPageFooter.m in Sources */,
+				A9671A8F14E3248C00A19956 /* RSMOCurrencyItem.m in Sources */,
+				A9671A9A14E33AD600A19956 /* RSMODateItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

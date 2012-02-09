@@ -19,3 +19,16 @@ typedef enum {
 typedef NSInteger RSBorder;
 
 #endif
+
+#ifndef RSReport_RSAlignments_h
+#define RSReport_RSAlignments_h
+
+typedef enum {
+    RSItemAlignLeft = 0,
+    RSItemAlignCenter = 1,
+    RSItemAlignRight = 2
+} RSItemAlignmentTypes;
+
+typedef NSInteger RSItemAlignment;
+
+#endif
