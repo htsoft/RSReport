@@ -38,7 +38,6 @@
     } else {
         self.text = @"--/--/----";
     }
-    [dtFormat release];
     [super printItemInContext:context];
 }
 

@@ -32,7 +32,6 @@
     } else {
         self.text = @"NaN";
     }
-    [numFmt release];
     [super printItemInContext:context];
 }
 

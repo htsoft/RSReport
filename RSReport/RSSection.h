@@ -13,14 +13,14 @@
 
 @interface RSSection : NSObject <RSSectionDelegate>
 
-@property (nonatomic, retain) id<RSReportDelegate> delegate;
-@property (nonatomic, retain) UIColor *strokeColor;
-@property (nonatomic, retain) UIColor *fillColor;
+@property (nonatomic, strong) id<RSReportDelegate> delegate;
+@property (nonatomic, strong) UIColor *strokeColor;
+@property (nonatomic, strong) UIColor *fillColor;
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, assign) RSBorder bordersToDraw;
 @property (nonatomic, assign) CGFloat borderWidth;
-@property (nonatomic, retain) NSManagedObject *managedObject;
-@property (nonatomic, retain) NSMutableArray *printableItems;
+@property (nonatomic, strong) NSManagedObject *managedObject;
+@property (nonatomic, strong) NSMutableArray *printableItems;
 
 - (void)printSectionWithContext:(CGContextRef)context;
 

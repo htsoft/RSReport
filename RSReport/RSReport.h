@@ -21,13 +21,13 @@
     NSInteger _currentVPosition;
 }
 
-@property (nonatomic, retain) NSString *pdfFileName;
+@property (nonatomic, strong) NSString *pdfFileName;
 @property (nonatomic, assign) CGRect pageSize;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) RSReportHeader *reportHeader;
-@property (nonatomic, retain) RSBodySection *bodySection;
-@property (nonatomic, retain) RSPageHeader *pageHeader;
-@property (nonatomic, retain) RSPageFooter *pageFooter;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) RSReportHeader *reportHeader;
+@property (nonatomic, strong) RSBodySection *bodySection;
+@property (nonatomic, strong) RSPageHeader *pageHeader;
+@property (nonatomic, strong) RSPageFooter *pageFooter;
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;

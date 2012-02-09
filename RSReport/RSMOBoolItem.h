@@ -10,6 +10,6 @@
 
 @interface RSMOBoolItem : RSTextItem
 
-@property (nonatomic, retain) NSString *attribute;
+@property (nonatomic, strong) NSString *attribute;
 
 @end

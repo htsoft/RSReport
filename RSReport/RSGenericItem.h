@@ -13,9 +13,9 @@
 @interface RSGenericItem : NSObject
 
 @property (nonatomic, assign) CGRect frame;
-@property (nonatomic, retain) UIColor *strokeColor;
-@property (nonatomic, retain) UIColor *fillColor;
-@property (nonatomic, retain) id<RSSectionDelegate> delegate;
+@property (nonatomic, strong) UIColor *strokeColor;
+@property (nonatomic, strong) UIColor *fillColor;
+@property (nonatomic, strong) id<RSSectionDelegate> delegate;
 @property (nonatomic, assign) CGRect absoluteRect;
 
 - (void)printItemInContext:(CGContextRef)context;

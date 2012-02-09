@@ -10,7 +10,7 @@
 
 @interface RSMODateItem : RSTextItem
 
-@property (nonatomic, retain) NSString *attribute;
-@property (nonatomic, retain) NSString *dateFormat;
+@property (nonatomic, strong) NSString *attribute;
+@property (nonatomic, strong) NSString *dateFormat;
 
 @end

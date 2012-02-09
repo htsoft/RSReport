@@ -35,11 +35,8 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:_sortKey ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
-    [sortDescriptors release];
-    [sortDescriptor release];
     
     NSFetchedResultsController *fetchedController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    [fetchRequest release];
     
     NSError *error;
     BOOL success = [fetchedController performFetch:&error];
@@ -62,7 +59,6 @@
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
             }
         }
-        
     }
 }
 

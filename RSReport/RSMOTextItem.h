@@ -10,6 +10,6 @@
 
 @interface RSMOTextItem : RSTextItem
 
-@property (nonatomic, retain) NSString *attribute;
+@property (nonatomic, strong) NSString *attribute;
 
 @end

@@ -44,7 +44,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     if (self) {
         CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
         CFStringRef newUniqueIdString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
-        _pdfFileName = [NSString stringWithFormat:@"%@.pdf",(NSString *)newUniqueIdString];
+        _pdfFileName = [NSString stringWithFormat:@"%@.pdf",(__bridge NSString *)newUniqueIdString];
         CFRelease(newUniqueId);
         CFRelease(newUniqueIdString);
         _pageSize = CGRectMake(0, 0, 612, 792);

@@ -11,7 +11,7 @@
 
 @interface RSBodySection : RSSection
 
-@property (nonatomic, retain) NSString *entityName;
-@property (nonatomic, retain) NSString *sortKey;
+@property (nonatomic, strong) NSString *entityName;
+@property (nonatomic, strong) NSString *sortKey;
 
 @end
