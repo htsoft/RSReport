@@ -23,7 +23,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKey:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
         if ([((NSNumber *)value) boolValue]) {
             self.text = @"ON";

@@ -23,7 +23,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKey:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
     NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
     [numFmt setLocale:[NSLocale currentLocale]];
     [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];

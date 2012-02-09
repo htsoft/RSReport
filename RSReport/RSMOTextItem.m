@@ -23,7 +23,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKey:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
     if ([value isKindOfClass:[NSString class]])
         self.text = (NSString *)value;
     if ([value isKindOfClass:[NSNumber class]]) {
