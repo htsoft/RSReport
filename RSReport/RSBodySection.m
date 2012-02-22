@@ -13,6 +13,7 @@
 
 @synthesize entityName = _entityName;
 @synthesize sortKey = _sortKey;
+@synthesize filterPredicate = _filterPredicate;
 
 - (id)init
 {
@@ -32,6 +33,8 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];    
     // Configure the request's entity, and optionally its predicate.
+    if (_filterPredicate)
+        [fetchRequest setPredicate:_filterPredicate]; 
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:_sortKey ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];

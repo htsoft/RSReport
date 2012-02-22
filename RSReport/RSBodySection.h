@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) NSString *entityName;
 @property (nonatomic, strong) NSString *sortKey;
+@property (nonatomic, strong) NSPredicate *filterPredicate;
 
 @end
