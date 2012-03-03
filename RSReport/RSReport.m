@@ -104,6 +104,11 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
         [_bodySection printSectionWithContext:_pdfContext];
     }
     
+    // After printed last page check if necessary to print pageFooter
+    if (_pageFooter && _pageFooter.printOnLastPage) {
+        [_pageFooter printSectionWithContext:_pdfContext];
+    }
+    
     // if Report footer is assigned then draw it
     
     
@@ -127,6 +132,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (void)updateCurrentPage {
+    if (_pageFooter && _currentPage!=0) {
+        _pageFooter.delegate = self;
+        [_pageFooter printSectionWithContext:_pdfContext];
+    }
     _currentVPosition = 0;
     UIGraphicsBeginPDFPage();
     if (_pageHeader) {
@@ -138,6 +147,10 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 - (void)updateVPosition:(CGFloat)delta {
     _currentVPosition += delta;
+}
+
+- (CGFloat)getCurrentVPosition {
+    return _currentVPosition;
 }
 
 - (NSString *)getFullPathPDFFileName {
@@ -158,7 +171,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     if (_pageFooter) {
         position += _pageFooter.frame.size.height;
     }
-    return ((position > _pageSize.size.height) ? NO : YES);
+    return ((position >= _pageSize.size.height) ? NO : YES);
 }
 
 - (CGRect)getCurrentPageSize {

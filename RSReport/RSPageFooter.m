@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        _printOnLastPage = NO;
+        _printOnLastPage = YES;
     }
     
     return self;

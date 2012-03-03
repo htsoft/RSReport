@@ -57,6 +57,7 @@
                 if (![self.delegate checkforFrame:self.frame]) {
                     [self.delegate updateCurrentPage];
                     self.frame = originalFrame;
+                    self.frame = CGRectMake(originalFrame.origin.x, [self.delegate getCurrentVPosition], originalFrame.size.width, originalFrame.size.height);
                 }
                 [super printSectionWithContext:context];
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);

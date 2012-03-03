@@ -15,6 +15,7 @@
 - (NSManagedObjectContext *)getManagedObjectContext;
 - (void)updateCurrentPage;
 - (void)updateVPosition:(CGFloat)delta;
+- (CGFloat)getCurrentVPosition;
 - (BOOL)checkforFrame:(CGRect)frame;
 - (CGRect)getCurrentPageSize;
 
