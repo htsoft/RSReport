@@ -65,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A915735E1502E95B00DE9C80 /* LGPL V3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LGPL V3.txt"; sourceTree = "<group>"; };
 		A93574A313FE2DCE0087418D /* RSMOBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOBoolItem.h; sourceTree = "<group>"; };
 		A93574A413FE2DCE0087418D /* RSMOBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOBoolItem.m; sourceTree = "<group>"; };
 		A93574AF13FEA5F30087418D /* RSPageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPageHeader.h; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		A98DC84E13F7CD8B00A0BEE0 = {
 			isa = PBXGroup;
 			children = (
+				A915735E1502E95B00DE9C80 /* LGPL V3.txt */,
 				A98DC89E13F7D94700A0BEE0 /* README */,
 				A98DC85E13F7CD8B00A0BEE0 /* RSReport */,
 				A98DC87413F7CD8B00A0BEE0 /* RSReportTests */,
