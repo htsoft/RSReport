@@ -27,6 +27,11 @@
 - (void)printItemInContext:(CGContextRef)context {
     [super printItemInContext:context];
     
+    if ([_text length]>0) {
+        NSString *primoCar = [_text substringToIndex:1];
+        if ([primoCar isEqualToString:@"\n"])
+            _text = [_text substringFromIndex:1];
+    }
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGSize textSize = [_text sizeWithFont:_font constrainedToSize:self.absoluteRect.size lineBreakMode:UILineBreakModeClip];
     // Calcola la posizione per l'allineamento

@@ -29,6 +29,7 @@
 #import "RSMOBoolItem.h"
 #import "RSPageHeader.h"
 #import "RSPageFooter.h"
+#import "RSCounterItem.h"
 
 #endif
 
