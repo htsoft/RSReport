@@ -9,6 +9,7 @@
 #import "RSSection.h"
 #import "RSGenericItem.h"
 #import "RSMOTextItem.h"
+#import "RSMOSumItem.h"
 
 @implementation RSSection
 
@@ -90,6 +91,17 @@
 
 - (CGPoint)getReferenceSectionPoint {
     return _frame.origin;
+}
+
+- (void)evaluate {
+    NSLog(@"Called RSSection evaluate...");
+    for (id gi in _printableItems) {
+        if ([gi isKindOfClass:[RSMOSumItem class]]) {
+            RSMOSumItem *si = (RSMOSumItem *)gi;
+            si.delegate = self;
+            [si evaluate];
+        }
+    }
 }
 
 @end

@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSMutableArray *printableItems;
 
 - (void)printSectionWithContext:(CGContextRef)context;
+- (void)evaluate;
 
 @end

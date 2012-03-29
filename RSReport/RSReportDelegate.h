@@ -18,5 +18,6 @@
 - (CGFloat)getCurrentVPosition;
 - (BOOL)checkforFrame:(CGRect)frame;
 - (CGRect)getCurrentPageSize;
+- (void)evaluate:(NSManagedObject *)object;
 
 @end

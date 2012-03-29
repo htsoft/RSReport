@@ -178,6 +178,18 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     return _pageSize;
 }
 
+- (void)evaluate:(NSManagedObject *)object {
+    if (_pageHeader) {
+        _pageHeader.managedObject = object;
+        [_pageHeader evaluate];
+    }
+    if (_pageFooter) {
+        _pageFooter.managedObject = object;
+        [_pageFooter evaluate];
+    }
+}
+
+
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
                            inDomain:(NSSearchPathDomainMask)domainMask
                 appendPathComponent:(NSString *)appendComponent

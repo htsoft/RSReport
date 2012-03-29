@@ -30,6 +30,7 @@
 #import "RSPageHeader.h"
 #import "RSPageFooter.h"
 #import "RSCounterItem.h"
+#import "RSMOSumItem.h"
 
 #endif
 
