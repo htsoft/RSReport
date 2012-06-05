@@ -57,4 +57,9 @@
     [_text drawInRect:textRect withFont:_font];
 }
 
+- (void)evaluate 
+{
+    NSLog(@"Called anchestor evaluate...");
+}
+
 @end

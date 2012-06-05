@@ -1,14 +1,14 @@
 //
-//  RSMOSumItem.h
+//  RSMOAvgItem.h
 //  RSReport
 //
-//  Created by Roberto Scarciello on 29/03/12.
+//  Created by Roberto Scarciello on 05/06/12.
 //  Copyright (c) 2012 Roberto Scarciello. All rights reserved.
 //
 
 #import "RSTextItem.h"
 
-@interface RSMOSumItem : RSTextItem
+@interface RSMOAvgItem : RSTextItem
 
 @property (nonatomic, strong) NSString *attribute;
 @property (assign) BOOL isCurrency;

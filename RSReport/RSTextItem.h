@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, assign) RSItemAlignment itemAlignment;
 
+- (void)evaluate;
+
 @end

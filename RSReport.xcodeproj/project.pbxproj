@@ -53,6 +53,8 @@
 		A98DC89D13F7D29B00A0BEE0 /* RSTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */; };
 		A992D04715249F90005D588A /* RSMOSumItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A992D04515249F90005D588A /* RSMOSumItem.h */; };
 		A992D04815249F90005D588A /* RSMOSumItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A992D04615249F90005D588A /* RSMOSumItem.m */; };
+		A9A5C38F157EA8EF00461E68 /* RSMOAvgItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A5C38D157EA8EF00461E68 /* RSMOAvgItem.h */; };
+		A9A5C390157EA8EF00461E68 /* RSMOAvgItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A5C38E157EA8EF00461E68 /* RSMOAvgItem.m */; };
 		A9DACC081519B84D0075E7B6 /* RSCounterItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A9DACC061519B84D0075E7B6 /* RSCounterItem.h */; };
 		A9DACC091519B84D0075E7B6 /* RSCounterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DACC071519B84D0075E7B6 /* RSCounterItem.m */; };
 		A9EEEA4C13F820000080F500 /* RSReportMain.h in Headers */ = {isa = PBXBuildFile; fileRef = A9EEEA4B13F820000080F500 /* RSReportMain.h */; };
@@ -120,6 +122,8 @@
 		A98DC89E13F7D94700A0BEE0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A992D04515249F90005D588A /* RSMOSumItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOSumItem.h; sourceTree = "<group>"; };
 		A992D04615249F90005D588A /* RSMOSumItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOSumItem.m; sourceTree = "<group>"; };
+		A9A5C38D157EA8EF00461E68 /* RSMOAvgItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOAvgItem.h; sourceTree = "<group>"; };
+		A9A5C38E157EA8EF00461E68 /* RSMOAvgItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOAvgItem.m; sourceTree = "<group>"; };
 		A9DACC061519B84D0075E7B6 /* RSCounterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCounterItem.h; sourceTree = "<group>"; };
 		A9DACC071519B84D0075E7B6 /* RSCounterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCounterItem.m; sourceTree = "<group>"; };
 		A9EEEA4B13F820000080F500 /* RSReportMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSReportMain.h; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */,
 				A992D04515249F90005D588A /* RSMOSumItem.h */,
 				A992D04615249F90005D588A /* RSMOSumItem.m */,
+				A9A5C38D157EA8EF00461E68 /* RSMOAvgItem.h */,
+				A9A5C38E157EA8EF00461E68 /* RSMOAvgItem.m */,
 				A9671A9714E33AD500A19956 /* RSMODateItem.h */,
 				A9671A9814E33AD500A19956 /* RSMODateItem.m */,
 				A981DF4613FA652A003B5521 /* RSMOTextItem.h */,
@@ -286,6 +292,7 @@
 				A9671A9914E33AD600A19956 /* RSMODateItem.h in Headers */,
 				A9DACC081519B84D0075E7B6 /* RSCounterItem.h in Headers */,
 				A992D04715249F90005D588A /* RSMOSumItem.h in Headers */,
+				A9A5C38F157EA8EF00461E68 /* RSMOAvgItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +413,7 @@
 				A9671A9A14E33AD600A19956 /* RSMODateItem.m in Sources */,
 				A9DACC091519B84D0075E7B6 /* RSCounterItem.m in Sources */,
 				A992D04815249F90005D588A /* RSMOSumItem.m in Sources */,
+				A9A5C390157EA8EF00461E68 /* RSMOAvgItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

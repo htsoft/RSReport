@@ -96,8 +96,8 @@
 - (void)evaluate {
     NSLog(@"Called RSSection evaluate...");
     for (id gi in _printableItems) {
-        if ([gi isKindOfClass:[RSMOSumItem class]]) {
-            RSMOSumItem *si = (RSMOSumItem *)gi;
+        if ([gi isKindOfClass:[RSTextItem class]]) {
+            RSTextItem *si = (RSTextItem *)gi;
             si.delegate = self;
             [si evaluate];
         }
