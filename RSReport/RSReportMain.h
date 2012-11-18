@@ -31,6 +31,7 @@
 #import "RSPageFooter.h"
 #import "RSCounterItem.h"
 #import "RSMOSumItem.h"
+#import "RSMOLookupArray.h"
 
 #endif
 
