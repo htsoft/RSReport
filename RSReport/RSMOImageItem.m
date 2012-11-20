@@ -23,11 +23,11 @@
     return self;
 }
 
-- (id)initWithDefaultImage:(UIImage *)defaultImage
+- (id)initWithDefaultImage:(UIImage *)defaultImage forAttribute:(NSString *)attribute;
 {
     self = [super init];
     if(self) {
-        _attribute = nil;
+        _attribute = attribute;
         _defaultImage = defaultImage;
     }
     return self;
