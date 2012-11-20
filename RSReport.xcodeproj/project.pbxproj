@@ -19,6 +19,8 @@
 		A9671A8F14E3248C00A19956 /* RSMOCurrencyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */; };
 		A9671A9914E33AD600A19956 /* RSMODateItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A9671A9714E33AD500A19956 /* RSMODateItem.h */; };
 		A9671A9A14E33AD600A19956 /* RSMODateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9671A9814E33AD500A19956 /* RSMODateItem.m */; };
+		A96B552D165C15B400293E51 /* RSMOImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A96B552B165C15B400293E51 /* RSMOImageItem.h */; };
+		A96B552E165C15B400293E51 /* RSMOImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A96B552C165C15B400293E51 /* RSMOImageItem.m */; };
 		A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2313F84D86003B5521 /* RSLineItem.h */; };
 		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2813F873D7003B5521 /* RSImageItem.h */; };
@@ -86,6 +88,8 @@
 		A9671A8D14E3248B00A19956 /* RSMOCurrencyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOCurrencyItem.m; sourceTree = "<group>"; };
 		A9671A9714E33AD500A19956 /* RSMODateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMODateItem.h; sourceTree = "<group>"; };
 		A9671A9814E33AD500A19956 /* RSMODateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMODateItem.m; sourceTree = "<group>"; };
+		A96B552B165C15B400293E51 /* RSMOImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMOImageItem.h; sourceTree = "<group>"; };
+		A96B552C165C15B400293E51 /* RSMOImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMOImageItem.m; sourceTree = "<group>"; };
 		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 				A95BA4991658F3690040826B /* RSMOLookupArray.h */,
 				A95BA49A1658F3690040826B /* RSMOLookupArray.m */,
+				A96B552B165C15B400293E51 /* RSMOImageItem.h */,
+				A96B552C165C15B400293E51 /* RSMOImageItem.m */,
 			);
 			path = RSReport;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				A992D04715249F90005D588A /* RSMOSumItem.h in Headers */,
 				A9A5C38F157EA8EF00461E68 /* RSMOAvgItem.h in Headers */,
 				A95BA49B1658F3690040826B /* RSMOLookupArray.h in Headers */,
+				A96B552D165C15B400293E51 /* RSMOImageItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +355,7 @@
 		A98DC85013F7CD8B00A0BEE0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Roberto Scarciello";
 			};
 			buildConfigurationList = A98DC85313F7CD8B00A0BEE0 /* Build configuration list for PBXProject "RSReport" */;
@@ -422,6 +429,7 @@
 				A992D04815249F90005D588A /* RSMOSumItem.m in Sources */,
 				A9A5C390157EA8EF00461E68 /* RSMOAvgItem.m in Sources */,
 				A95BA49C1658F3690040826B /* RSMOLookupArray.m in Sources */,
+				A96B552E165C15B400293E51 /* RSMOImageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

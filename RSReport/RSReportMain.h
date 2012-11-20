@@ -32,6 +32,7 @@
 #import "RSCounterItem.h"
 #import "RSMOSumItem.h"
 #import "RSMOLookupArray.h"
+#import "RSMOImageItem.h"
 
 #endif
 
