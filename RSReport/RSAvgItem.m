@@ -1,23 +1,22 @@
 //
-//  RSMOAvgItem.m
+//  RSAvgItem.m
 //  RSReport
 //
-//  Created by Roberto Scarciello on 05/06/12.
+//  Created by Roberto Scarciello on 22/11/12.
 //  Copyright (c) 2012 Roberto Scarciello. All rights reserved.
 //
 
-#import "RSMOAvgItem.h"
+#import "RSAvgItem.h"
 
-@interface RSMOAvgItem ()
+@interface RSAvgItem ()
 
 @property (nonatomic, strong) NSNumber *currentSum;
 @property (nonatomic, assign) NSInteger itemCount;
 
 @end
 
-@implementation RSMOAvgItem
+@implementation RSAvgItem
 
-@synthesize attribute = _attribute;
 @synthesize isCurrency = _isCurrency;
 @synthesize currentSum = _currentSum;
 @synthesize itemCount = _itemCount;
@@ -26,7 +25,6 @@
 {
     self = [super init];
     if (self) {
-        _attribute = nil;
         _isCurrency = NO;
         _currentSum = [NSNumber numberWithDouble:0];
         _itemCount = 0;
@@ -36,7 +34,7 @@
 }
 
 - (void)evaluate {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
         NSLog(@"Called evaluate...");
         double sum = [_currentSum doubleValue] + [((NSNumber *)value) doubleValue];
@@ -62,6 +60,5 @@
     }
     [super printItemInContext:context];
 }
-
 
 @end

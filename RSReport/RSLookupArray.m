@@ -1,24 +1,22 @@
 //
-//  RSMOLookupArray.m
+//  RSLookupArray.m
 //  RSReport
 //
-//  Created by Roberto Scarciello on 18/11/12.
+//  Created by Roberto Scarciello on 22/11/12.
 //  Copyright (c) 2012 Roberto Scarciello. All rights reserved.
 //
 
-#import "RSMOLookupArray.h"
+#import "RSLookupArray.h"
 
-@implementation RSMOLookupArray
+@implementation RSLookupArray
 
 @synthesize lookupArray = _lookupArray;
 @synthesize defaultValue = _defaultValue;
-@synthesize attribute = _attribute;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _attribute = nil;
         _defaultValue = @"";
         _lookupArray = nil;
     }
@@ -27,7 +25,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
         if(self.lookupArray) {
             NSInteger indice = [(NSNumber *)value integerValue];

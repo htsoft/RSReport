@@ -13,18 +13,30 @@
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize itemAlignment = _itemAlignment;
+@synthesize attribute = _attribute;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _font = [UIFont systemFontOfSize:12];
+        _attribute = nil;
+        _text = nil;
     }
     
     return self;
 }
 
 - (void)printItemInContext:(CGContextRef)context {
+    if(!self.text) {
+        NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+        if ([value isKindOfClass:[NSString class]])
+            self.text = (NSString *)value;
+        if ([value isKindOfClass:[NSNumber class]]) {
+            self.text = [((NSNumber *)value) stringValue];
+        }
+    }
+
     [super printItemInContext:context];
     
     if ([_text length]>0) {

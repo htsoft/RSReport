@@ -23,15 +23,15 @@
 #import "RSOvalItem.h"
 #import "RSBodySection.h"
 #import "RSSectionDelegate.h"
-#import "RSMOTextItem.h"
-#import "RSMOCurrencyItem.h"
-#import "RSMODateItem.h"
-#import "RSMOBoolItem.h"
+#import "RSCurrencyItem.h"
+#import "RSDateItem.h"
+#import "RSBoolItem.h"
 #import "RSPageHeader.h"
 #import "RSPageFooter.h"
 #import "RSCounterItem.h"
-#import "RSMOSumItem.h"
-#import "RSMOLookupArray.h"
+#import "RSSumItem.h"
+#import "RSAvgItem.h"
+#import "RSLookupArray.h"
 
 #endif
 

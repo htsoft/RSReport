@@ -1,29 +1,17 @@
 //
-//  RSMOCurrencyItem.m
+//  RSCurrencyItem.m
 //  RSReport
 //
-//  Created by Roberto Scarciello on 08/02/12.
+//  Created by Roberto Scarciello on 22/11/12.
 //  Copyright (c) 2012 Roberto Scarciello. All rights reserved.
 //
 
-#import "RSMOCurrencyItem.h"
+#import "RSCurrencyItem.h"
 
-@implementation RSMOCurrencyItem
-
-@synthesize attribute = _attribute;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        _attribute = nil;
-    }
-    
-    return self;
-}
+@implementation RSCurrencyItem
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
     NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
     [numFmt setLocale:[NSLocale currentLocale]];
     [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];

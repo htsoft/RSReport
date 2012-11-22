@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, assign) RSItemAlignment itemAlignment;
+@property (nonatomic, strong) NSString *attribute;
 
 - (void)evaluate;
 

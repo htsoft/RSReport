@@ -1,23 +1,21 @@
 //
-//  RSMODateItem.m
+//  RSDateItem.m
 //  RSReport
 //
-//  Created by Roberto Scarciello on 09/02/12.
+//  Created by Roberto Scarciello on 22/11/12.
 //  Copyright (c) 2012 Roberto Scarciello. All rights reserved.
 //
 
-#import "RSMODateItem.h"
+#import "RSDateItem.h"
 
-@implementation RSMODateItem
+@implementation RSDateItem
 
-@synthesize attribute = _attribute;
 @synthesize dateFormat = _dateFormat;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _attribute = nil;
         _dateFormat = nil;
     }
     
@@ -25,13 +23,13 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];
     if (_dateFormat) {
         [dtFormat setDateFormat:_dateFormat];
     } else {
         [dtFormat setLocale:[NSLocale currentLocale]];
-        [dtFormat setDateStyle:NSDateFormatterMediumStyle];        
+        [dtFormat setDateStyle:NSDateFormatterMediumStyle];
     }
     if ([value isKindOfClass:[NSDate class]]) {
         self.text = [dtFormat stringFromDate:(NSDate *)value];

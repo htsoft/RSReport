@@ -8,8 +8,7 @@
 
 #import "RSSection.h"
 #import "RSGenericItem.h"
-#import "RSMOTextItem.h"
-#import "RSMOSumItem.h"
+#import "RSTextItem.h"
 
 @implementation RSSection
 
