@@ -11,5 +11,9 @@
 @interface RSImageItem : RSGenericItem
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSString *attribute;
+@property (nonatomic, strong) UIImage *defaultImage;
+
+- (id)initWithDefaultImage:(UIImage *)defaultImage forAttribute:(NSString *)attribute;
 
 @end
