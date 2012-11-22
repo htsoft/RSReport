@@ -8,12 +8,19 @@
 
 #import "RSTextItem.h"
 
+@interface RSTextItem ()
+
+@property (nonatomic, strong) NSString *textToPrint;
+
+@end
+
 @implementation RSTextItem
 
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize itemAlignment = _itemAlignment;
 @synthesize attribute = _attribute;
+@synthesize textToPrint = _textToPrint;
 
 - (id)init
 {
@@ -31,21 +38,23 @@
     if(!self.text) {
         NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
         if ([value isKindOfClass:[NSString class]])
-            self.text = (NSString *)value;
+            self.textToPrint = (NSString *)value;
         if ([value isKindOfClass:[NSNumber class]]) {
-            self.text = [((NSNumber *)value) stringValue];
+            self.textToPrint = [((NSNumber *)value) stringValue];
         }
+    } else {
+        self.textToPrint = [NSString stringWithString:self.text];
     }
-
+    
     [super printItemInContext:context];
     
-    if ([_text length]>0) {
-        NSString *primoCar = [_text substringToIndex:1];
+    if ([_textToPrint length]>0) {
+        NSString *primoCar = [_textToPrint substringToIndex:1];
         if ([primoCar isEqualToString:@"\n"])
-            _text = [_text substringFromIndex:1];
+            _text = [_textToPrint substringFromIndex:1];
     }
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGSize textSize = [_text sizeWithFont:_font constrainedToSize:self.absoluteRect.size lineBreakMode:UILineBreakModeClip];
+    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.absoluteRect.size lineBreakMode:UILineBreakModeClip];
     // Calcola la posizione per l'allineamento
     CGPoint textPosition = CGPointMake(0, 0);
     switch (_itemAlignment) {
@@ -66,7 +75,7 @@
             break;
     }
     CGRect textRect = CGRectMake(self.absoluteRect.origin.x+textPosition.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
-    [_text drawInRect:textRect withFont:_font];
+    [_textToPrint drawInRect:textRect withFont:_font];
 }
 
 - (void)evaluate 
