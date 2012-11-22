@@ -1,0 +1,12 @@
+This document contains the ChangeLog of RSReport project.
+
+
+== 0.4.0 == 22 Nov. 2012
+
+- Merged RSTextItem and RSMOTextItem classes the result class is called RSTextItem
+- Merged RSImageItem and RSMOImageItem classes the result class is called RSImageItem
+- Renamed RSMOAvgItem into RSAvgItem
+- Renamed RSMOCurrencyItem into RSCurrencyItem
+- Renamed RSMODateItem into RSDateItem
+- Renamed RSMOLookupArray into RSLookupArray
+- Renamed RSMOSumItem into RSSumItem

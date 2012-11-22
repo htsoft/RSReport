@@ -127,6 +127,7 @@
 		A9DACC061519B84D0075E7B6 /* RSCounterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCounterItem.h; sourceTree = "<group>"; };
 		A9DACC071519B84D0075E7B6 /* RSCounterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCounterItem.m; sourceTree = "<group>"; };
 		A9EEEA4B13F820000080F500 /* RSReportMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSReportMain.h; sourceTree = "<group>"; };
+		A9FA9048165EDD3B00ED1B43 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +158,7 @@
 		A98DC84E13F7CD8B00A0BEE0 = {
 			isa = PBXGroup;
 			children = (
+				A9FA9048165EDD3B00ED1B43 /* CHANGELOG */,
 				A915735E1502E95B00DE9C80 /* LGPL V3.txt */,
 				A98DC89E13F7D94700A0BEE0 /* README */,
 				A98DC85E13F7CD8B00A0BEE0 /* RSReport */,
@@ -190,49 +192,49 @@
 		A98DC85E13F7CD8B00A0BEE0 /* RSReport */ = {
 			isa = PBXGroup;
 			children = (
-				A98DC86113F7CD8B00A0BEE0 /* RSReport.h */,
-				A98DC86213F7CD8B00A0BEE0 /* RSReport.m */,
-				A98DC89013F7D05B00A0BEE0 /* RSReportHeader.h */,
-				A98DC89113F7D05B00A0BEE0 /* RSReportHeader.m */,
-				A98DC89413F7D0BC00A0BEE0 /* RSGenericItem.h */,
-				A98DC89513F7D0BC00A0BEE0 /* RSGenericItem.m */,
-				A98DC88A13F7CF1C00A0BEE0 /* RSReportDelegate.h */,
-				A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */,
-				A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */,
-				A9DACC061519B84D0075E7B6 /* RSCounterItem.h */,
-				A9DACC071519B84D0075E7B6 /* RSCounterItem.m */,
-				A9EEEA4B13F820000080F500 /* RSReportMain.h */,
-				A981DF2313F84D86003B5521 /* RSLineItem.h */,
-				A981DF2413F84D86003B5521 /* RSLineItem.m */,
-				A981DF2813F873D7003B5521 /* RSImageItem.h */,
-				A981DF2913F873D7003B5521 /* RSImageItem.m */,
-				A981DF2C13F90E66003B5521 /* RSSection.h */,
-				A981DF2D13F90E66003B5521 /* RSSection.m */,
-				A981DF3413F91CC1003B5521 /* RSTypes.h */,
-				A981DF3613F9CCB6003B5521 /* RSRectangleItem.h */,
-				A981DF3713F9CCB6003B5521 /* RSRectangleItem.m */,
-				A981DF3A13F9D102003B5521 /* RSOvalItem.h */,
-				A981DF3B13F9D102003B5521 /* RSOvalItem.m */,
+				A903DBD2165DB40600CC4CB5 /* RSAvgItem.h */,
+				A903DBD3165DB40600CC4CB5 /* RSAvgItem.m */,
 				A981DF3E13F9D306003B5521 /* RSBodySection.h */,
 				A981DF3F13F9D306003B5521 /* RSBodySection.m */,
-				A981DF4413FA6491003B5521 /* RSSectionDelegate.h */,
-				A93574AF13FEA5F30087418D /* RSPageHeader.h */,
-				A93574B013FEA5F30087418D /* RSPageHeader.m */,
-				A93574B313FEA60E0087418D /* RSPageFooter.h */,
-				A93574B413FEA60F0087418D /* RSPageFooter.m */,
-				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 				A903DBC2165DB03500CC4CB5 /* RSBoolItem.h */,
 				A903DBC3165DB03500CC4CB5 /* RSBoolItem.m */,
+				A9DACC061519B84D0075E7B6 /* RSCounterItem.h */,
+				A9DACC071519B84D0075E7B6 /* RSCounterItem.m */,
 				A903DBC6165DB1E600CC4CB5 /* RSCurrencyItem.h */,
 				A903DBC7165DB1E600CC4CB5 /* RSCurrencyItem.m */,
 				A903DBCA165DB25E00CC4CB5 /* RSDateItem.h */,
 				A903DBCB165DB25E00CC4CB5 /* RSDateItem.m */,
-				A903DBCE165DB31700CC4CB5 /* RSSumItem.h */,
-				A903DBCF165DB31700CC4CB5 /* RSSumItem.m */,
-				A903DBD2165DB40600CC4CB5 /* RSAvgItem.h */,
-				A903DBD3165DB40600CC4CB5 /* RSAvgItem.m */,
+				A98DC89413F7D0BC00A0BEE0 /* RSGenericItem.h */,
+				A98DC89513F7D0BC00A0BEE0 /* RSGenericItem.m */,
+				A981DF2813F873D7003B5521 /* RSImageItem.h */,
+				A981DF2913F873D7003B5521 /* RSImageItem.m */,
+				A981DF2313F84D86003B5521 /* RSLineItem.h */,
+				A981DF2413F84D86003B5521 /* RSLineItem.m */,
 				A903DBD6165DB48D00CC4CB5 /* RSLookupArray.h */,
 				A903DBD7165DB48D00CC4CB5 /* RSLookupArray.m */,
+				A981DF3A13F9D102003B5521 /* RSOvalItem.h */,
+				A981DF3B13F9D102003B5521 /* RSOvalItem.m */,
+				A93574B313FEA60E0087418D /* RSPageFooter.h */,
+				A93574B413FEA60F0087418D /* RSPageFooter.m */,
+				A93574AF13FEA5F30087418D /* RSPageHeader.h */,
+				A93574B013FEA5F30087418D /* RSPageHeader.m */,
+				A981DF3613F9CCB6003B5521 /* RSRectangleItem.h */,
+				A981DF3713F9CCB6003B5521 /* RSRectangleItem.m */,
+				A98DC86113F7CD8B00A0BEE0 /* RSReport.h */,
+				A98DC86213F7CD8B00A0BEE0 /* RSReport.m */,
+				A98DC88A13F7CF1C00A0BEE0 /* RSReportDelegate.h */,
+				A98DC89013F7D05B00A0BEE0 /* RSReportHeader.h */,
+				A98DC89113F7D05B00A0BEE0 /* RSReportHeader.m */,
+				A9EEEA4B13F820000080F500 /* RSReportMain.h */,
+				A981DF2C13F90E66003B5521 /* RSSection.h */,
+				A981DF2D13F90E66003B5521 /* RSSection.m */,
+				A981DF4413FA6491003B5521 /* RSSectionDelegate.h */,
+				A903DBCE165DB31700CC4CB5 /* RSSumItem.h */,
+				A903DBCF165DB31700CC4CB5 /* RSSumItem.m */,
+				A98DC89A13F7D29B00A0BEE0 /* RSTextItem.h */,
+				A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */,
+				A981DF3413F91CC1003B5521 /* RSTypes.h */,
+				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
 			);
 			path = RSReport;
 			sourceTree = "<group>";
