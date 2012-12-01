@@ -11,5 +11,6 @@
 @interface RSDateItem : RSTextItem
 
 @property (nonatomic, strong) NSString *dateFormat;
+@property (nonatomic, strong) NSDate *value;
 
 @end

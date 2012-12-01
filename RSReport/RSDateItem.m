@@ -11,6 +11,7 @@
 @implementation RSDateItem
 
 @synthesize dateFormat = _dateFormat;
+@synthesize value = _value;
 
 - (id)init
 {
@@ -23,7 +24,11 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    NSObject *currentValue;
+    if(!self.value)
+        currentValue = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    else
+        currentValue = self.value;
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];
     if (_dateFormat) {
         [dtFormat setDateFormat:_dateFormat];
@@ -31,8 +36,8 @@
         [dtFormat setLocale:[NSLocale currentLocale]];
         [dtFormat setDateStyle:NSDateFormatterMediumStyle];
     }
-    if ([value isKindOfClass:[NSDate class]]) {
-        self.text = [dtFormat stringFromDate:(NSDate *)value];
+    if ([currentValue isKindOfClass:[NSDate class]]) {
+        self.text = [dtFormat stringFromDate:(NSDate *)currentValue];
     } else {
         self.text = @"--/--/----";
     }

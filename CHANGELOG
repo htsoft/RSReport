@@ -1,5 +1,19 @@
 This document contains the ChangeLog of RSReport project.
 
+== 0.4.1 == 28 Nov. 2012
+
+- Added locale property to RSCurrencyItem
+  if locale is setted the currency will be printed using specified locale otherwise the device currentLocale will be used
+- Added value property to RSCurrencyItem 
+  If a NSNumber is assigned to value property the value will be printed otherwise if attribute property is assigned the class will try to get data from the entity.
+- Added locale property to RSAvgItem
+  if locale is setted and isCurrency property is YES the currency will be printed using specified locale otherwise the device currentLocale will be used
+- Added locale property to RSSumItem
+  if locale is setted and isCurrency property is YES the currency will be printed using specified locale otherwise the device currentLocale will be used
+- Added value property to RSBoolItem
+  If a NSNumber is assigned to value property the value will be printed using it as a BOOL otherwise if attribute property is assigned the class will try to get data from the entity.
+- Added value property to RSDateItem 
+  If a NSNumber is assigned to value property the value will be printed otherwise if attribute property is assigned the class will try to get data from the entity.
 
 == 0.4.0 == 22 Nov. 2012
 

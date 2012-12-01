@@ -20,6 +20,7 @@
 @synthesize isCurrency = _isCurrency;
 @synthesize currentSum = _currentSum;
 @synthesize itemCount = _itemCount;
+@synthesize locale = _locale;
 
 - (id)init
 {
@@ -28,6 +29,7 @@
         _isCurrency = NO;
         _currentSum = [NSNumber numberWithDouble:0];
         _itemCount = 0;
+        _locale = nil;
     }
     
     return self;
@@ -51,8 +53,10 @@
         currentItemCount = _itemCount;
     NSNumber *average = [NSNumber numberWithDouble:[_currentSum doubleValue]/currentItemCount];
     if (_isCurrency) {
+        if(!self.locale)
+            self.locale = [NSLocale currentLocale];
         NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
-        [numFmt setLocale:[NSLocale currentLocale]];
+        [numFmt setLocale:self.locale];
         [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
         self.text = [numFmt stringFromNumber:average];
     } else {

@@ -10,10 +10,16 @@
 
 @implementation RSBoolItem
 
+@synthesize value = _value;
+
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
-    if ([value isKindOfClass:[NSNumber class]]) {
-        if ([((NSNumber *)value) boolValue]) {
+    NSObject *currentValue;
+    if(!self.value)
+        currentValue = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    else
+        currentValue = self.value;
+    if ([currentValue isKindOfClass:[NSNumber class]]) {
+        if ([((NSNumber *)currentValue) boolValue]) {
             self.text = @"ON";
         } else {
             self.text = @"OFF";

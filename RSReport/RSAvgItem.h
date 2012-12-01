@@ -11,5 +11,6 @@
 @interface RSAvgItem : RSTextItem
 
 @property (assign) BOOL isCurrency;
+@property (nonatomic, strong) NSLocale *locale;
 
 @end

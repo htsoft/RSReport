@@ -10,4 +10,7 @@
 
 @interface RSCurrencyItem : RSTextItem
 
+@property (nonatomic, strong) NSLocale *locale;
+@property (nonatomic, strong) NSNumber *value;
+
 @end

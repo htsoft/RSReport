@@ -18,6 +18,7 @@
 
 @synthesize isCurrency = _isCurrency;
 @synthesize currentSum = _currentSum;
+@synthesize locale = _locale;
 
 - (id)init
 {
@@ -25,6 +26,7 @@
     if (self) {
         _isCurrency = NO;
         _currentSum = [NSNumber numberWithDouble:0];
+        _locale = nil;
     }
     
     return self;
@@ -41,8 +43,10 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     if (_isCurrency) {
+        if(!self.locale)
+            self.locale = [NSLocale currentLocale];
         NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
-        [numFmt setLocale:[NSLocale currentLocale]];
+        [numFmt setLocale:self.locale];
         [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
         self.text = [numFmt stringFromNumber:_currentSum];
     } else {

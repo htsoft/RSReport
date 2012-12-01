@@ -10,13 +10,22 @@
 
 @implementation RSCurrencyItem
 
+@synthesize locale = _locale;
+@synthesize value = _value;
+
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    NSObject *currentValue = nil;
+    if(!self.locale)
+        self.locale = [NSLocale currentLocale];
+    if (!self.value && self.attribute) 
+        currentValue = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    else 
+        currentValue = self.value;
     NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
-    [numFmt setLocale:[NSLocale currentLocale]];
+    [numFmt setLocale:self.locale];
     [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
-    if ([value isKindOfClass:[NSNumber class]]) {
-        self.text = [numFmt stringFromNumber:(NSNumber *)value];
+    if ([currentValue isKindOfClass:[NSNumber class]]) {
+        self.text = [numFmt stringFromNumber:(NSNumber *)currentValue];
     } else {
         self.text = @"NaN";
     }

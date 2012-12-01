@@ -10,4 +10,6 @@
 
 @interface RSBoolItem : RSTextItem
 
+@property (nonatomic, strong) NSNumber *value;
+
 @end
