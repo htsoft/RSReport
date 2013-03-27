@@ -25,7 +25,7 @@
 }
 
 - (void)printItemInContext:(CGContextRef)context {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    NSObject *value = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
         if(self.lookupArray) {
             NSInteger indice = [(NSNumber *)value integerValue];

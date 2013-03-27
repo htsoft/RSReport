@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSDataSource.h"
 
 @protocol RSReportDelegate <NSObject>
 
 - (NSInteger)getCurrentPageNumber;
 - (void)setCurrentPageNumber:(NSInteger)pageNumber;
-- (NSManagedObjectContext *)getManagedObjectContext;
+- (id)getDataSource;
 - (void)updateCurrentPage;
 - (void)updateVPosition:(CGFloat)delta;
 - (CGFloat)getCurrentVPosition;
 - (BOOL)checkforFrame:(CGRect)frame;
 - (CGRect)getCurrentPageSize;
-- (void)evaluate:(NSManagedObject *)object;
+- (void)evaluate:(id<RSDataSource>)object;
 
 @end

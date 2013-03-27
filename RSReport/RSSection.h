@@ -19,8 +19,8 @@
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, assign) RSBorder bordersToDraw;
 @property (nonatomic, assign) CGFloat borderWidth;
-@property (nonatomic, strong) NSManagedObject *managedObject;
 @property (nonatomic, strong) NSMutableArray *printableItems;
+@property (nonatomic, strong) id<RSDataSource> dataSource;
 
 - (void)printSectionWithContext:(CGContextRef)context;
 - (void)evaluate;

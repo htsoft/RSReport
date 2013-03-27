@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RSReportDelegate.h"
+#import "RSDataSource.h"
 
 @class RSReportHeader;
 @class RSBodySection;
@@ -23,7 +24,7 @@
 
 @property (nonatomic, strong) NSString *pdfFileName;
 @property (nonatomic, assign) CGRect pageSize;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) id<RSDataSource> dataSource;
 @property (nonatomic, strong) RSReportHeader *reportHeader;
 @property (nonatomic, strong) RSBodySection *bodySection;
 @property (nonatomic, strong) RSPageHeader *pageHeader;

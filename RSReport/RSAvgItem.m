@@ -36,7 +36,7 @@
 }
 
 - (void)evaluate {
-    NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+    NSObject *value = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
         NSLog(@"Called evaluate...");
         double sum = [_currentSum doubleValue] + [((NSNumber *)value) doubleValue];

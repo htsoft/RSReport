@@ -32,6 +32,7 @@
 #import "RSSumItem.h"
 #import "RSAvgItem.h"
 #import "RSLookupArray.h"
+#import "RSDataSource.h"
 
 #endif
 

@@ -36,11 +36,15 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     if(!self.text) {
-        NSObject *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
-        if ([value isKindOfClass:[NSString class]])
-            self.textToPrint = (NSString *)value;
-        if ([value isKindOfClass:[NSNumber class]]) {
-            self.textToPrint = [((NSNumber *)value) stringValue];
+        NSObject *value = [[self.delegate getDataSource] getAttributeByPath:_attribute];
+        if(value) {
+            if ([value isKindOfClass:[NSString class]])
+                self.textToPrint = (NSString *)value;
+            if ([value isKindOfClass:[NSNumber class]]) {
+                self.textToPrint = [((NSNumber *)value) stringValue];
+            }
+        } else {
+            self.textToPrint = nil;
         }
     } else {
         self.textToPrint = [NSString stringWithString:self.text];

@@ -26,7 +26,7 @@
 - (void)printItemInContext:(CGContextRef)context {
     NSObject *currentValue;
     if(!self.value)
-        currentValue = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+        currentValue = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     else
         currentValue = self.value;
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];

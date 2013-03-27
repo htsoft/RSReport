@@ -18,7 +18,7 @@
     if(!self.locale)
         self.locale = [NSLocale currentLocale];
     if (!self.value && self.attribute) 
-        currentValue = [[self.delegate getManagedObject] valueForKeyPath:self.attribute];
+        currentValue = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     else 
         currentValue = self.value;
     NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];

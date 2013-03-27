@@ -39,7 +39,7 @@
 
 - (void)printItemInContext:(CGContextRef)context {
     if(!self.image) {
-        NSString *value = [[self.delegate getManagedObject] valueForKeyPath:_attribute];
+        NSString *value = [[self.delegate getDataSource] getAttributeByPath:_attribute];
         self.image = [UIImage imageWithContentsOfFile:value];
         if(!self.image)
             self.image = self.defaultImage;

@@ -11,10 +11,6 @@
 
 @implementation RSBodySection
 
-@synthesize entityName = _entityName;
-@synthesize sortKey = _sortKey;
-@synthesize filterPredicate = _filterPredicate;
-
 - (id)init
 {
     self = [super init];
@@ -28,31 +24,13 @@
 - (void)printSectionWithContext:(CGContextRef)context {
     // Save the original frame
     CGRect originalFrame = self.frame;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *managedObjectContext = [self.delegate getManagedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];    
-    // Configure the request's entity, and optionally its predicate.
-    if (_filterPredicate)
-        [fetchRequest setPredicate:_filterPredicate]; 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:_sortKey ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    NSFetchedResultsController *fetchedController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    
-    NSError *error;
-    BOOL success = [fetchedController performFetch:&error];
-    
+    id<RSDataSource> dataSource = [self.delegate getDataSource];
+    BOOL success = [dataSource openStream];
     if (success) {
-        NSInteger sections = [[fetchedController sections] count];
+        NSInteger sections = [dataSource numberOfSections];
         for(NSInteger currentSection=0;currentSection<sections;currentSection++) {
-            id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedController sections] objectAtIndex:currentSection];
-            NSInteger rows = [sectionInfo numberOfObjects];
-            for (NSInteger currentRow = 0; currentRow < rows; ++currentRow) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:currentSection];
-                NSManagedObject *currentManagedObject = [fetchedController objectAtIndexPath:indexPath];
-                self.managedObject = currentManagedObject;
+            BOOL rowAvailable = [dataSource firstItemInSection:currentSection];
+            while(rowAvailable) {
                 // Check for frame position and eventually update it, drawing PageHeader and PageFooter
                 if (![self.delegate checkforFrame:self.frame]) {
                     [self.delegate updateCurrentPage];
@@ -61,8 +39,9 @@
                 }
                 [self evaluate];
                 [super printSectionWithContext:context];
-                [self.delegate evaluate:currentManagedObject];
+                [self.delegate evaluate:dataSource];
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
+                rowAvailable = [dataSource hasNextInSection:currentSection];
             }
         }
     }

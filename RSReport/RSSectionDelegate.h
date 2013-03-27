@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSDataSource.h"
 
 @protocol RSSectionDelegate <NSObject>
 
 @optional
 
-- (NSManagedObject *)getManagedObject;
+- (id<RSDataSource>)getDataSource;
 - (CGPoint)getReferenceSectionPoint;
 
 @end

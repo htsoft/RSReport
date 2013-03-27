@@ -18,8 +18,8 @@
 @synthesize frame = _frame;
 @synthesize bordersToDraw = _bordersToDraw;
 @synthesize borderWidth = _borderWidth;
-@synthesize managedObject = _managedObject;
 @synthesize printableItems = _printableItems;
+@synthesize dataSource = _dataSource;
 
 - (id)init
 {
@@ -84,8 +84,8 @@
         [self.delegate updateVPosition:self.frame.size.height];
 }
 
-- (NSManagedObject *)getManagedObject {
-    return _managedObject;
+- (id<RSDataSource>)getDataSource {
+    return [self.delegate getDataSource];
 }
 
 - (CGPoint)getReferenceSectionPoint {

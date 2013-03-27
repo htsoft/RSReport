@@ -32,7 +32,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 @synthesize pdfFileName = _pdfFileName;
 @synthesize pageSize = _pageSize;
-@synthesize managedObjectContext = _managedObjectContext;
+@synthesize dataSource = _dataSource;
 @synthesize reportHeader = _reportHeader;
 @synthesize bodySection = _bodySection;
 @synthesize pageHeader = _pageHeader;
@@ -127,8 +127,8 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     _currentPage = pageNumber;
 }
 
-- (NSManagedObjectContext *)getManagedObjectContext {
-    return _managedObjectContext;
+- (id)getDataSource {
+    return _dataSource;
 }
 
 - (void)updateCurrentPage {
@@ -178,13 +178,13 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     return _pageSize;
 }
 
-- (void)evaluate:(NSManagedObject *)object {
+- (void)evaluate:(id<RSDataSource>)object {
     if (_pageHeader) {
-        _pageHeader.managedObject = object;
+        _pageHeader.dataSource = object;
         [_pageHeader evaluate];
     }
     if (_pageFooter) {
-        _pageFooter.managedObject = object;
+        _pageFooter.dataSource = object;
         [_pageFooter evaluate];
     }
 }

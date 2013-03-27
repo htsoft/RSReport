@@ -1,5 +1,12 @@
 This document contains the ChangeLog of RSReport project.
 
+== 0.5.0 == 26 Mar. 2012
+
+- Added new protocol RSDataSource
+- Added class RSDictionaryArrayDataSource
+- Added class RSCoreDataDataSource
+- Fixed a bug when an RSTextItem has a nil value assigne to the attribute
+
 == 0.4.1 == 28 Nov. 2012
 
 - Added locale property to RSCurrencyItem
