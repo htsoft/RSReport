@@ -1,5 +1,6 @@
 RSReport is a Framework for iOS devices that provides classes to create Reports in PDF format that can be easily previewed and printed within your applications.
 It's based on Bands concept. In RSReport there are many specialized bands where each one covers an aspect of a Report.
+This framework doesn't require access to external servers to create reports, all the work is done on the iOS devices.
 The framework is released under the L-GPL V3 license.
 
 Roberto S.

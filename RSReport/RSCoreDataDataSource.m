@@ -68,19 +68,22 @@
 - (BOOL)firstItemInSection:(NSInteger)section
 {
     currentRow = 0;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:section];
-    currentObject = [fetchedResultController objectAtIndexPath:indexPath];
-    if(currentObject)
-        return YES;
-    else
+    if([self numberOfObjectsInSection:section]>0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:section];
+        currentObject = [fetchedResultController objectAtIndexPath:indexPath];
+        if(currentObject)
+            return YES;
+        else
+            return NO;
+    } else {
         return NO;
+    }
 }
 
 - (BOOL)hasNextInSection:(NSInteger)section
 {
     ++currentRow;
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultController sections] objectAtIndex:section];
-    NSInteger rows = [sectionInfo numberOfObjects];
+    NSInteger rows = [self numberOfObjectsInSection:section];
     if(currentRow<rows) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentRow inSection:section];
         currentObject = [fetchedResultController objectAtIndexPath:indexPath];
