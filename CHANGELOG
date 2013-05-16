@@ -1,6 +1,12 @@
 This document contains the ChangeLog of RSReport project.
 
-== 0.5.0 == 26 Mar. 2012
+== 0.5.2 == 16 May 2013
+- Added support for easy reading int RSBodySection
+
+== 0.5.1 == 29 Mar. 2013
+- Fixed a bug when an empty Entity is used into RSCoreDataDataSource
+
+== 0.5.0 == 26 Mar. 2013
 
 - Added new protocol RSDataSource
 - Added class RSDictionaryArrayDataSource

@@ -11,11 +11,16 @@
 
 @implementation RSBodySection
 
+@synthesize easyReading = _easyReading;
+@synthesize easyReadingColor = _easyReadingColor;
+
 - (id)init
 {
     self = [super init];
     if (self) {
-        
+        self.easyReading = NO;
+        self.easyReadingColor = [UIColor lightGrayColor];
+        _currentRow = 0;
     }
     
     return self;
@@ -38,6 +43,14 @@
                     self.frame = CGRectMake(originalFrame.origin.x, [self.delegate getCurrentVPosition], originalFrame.size.width, originalFrame.size.height);
                 }
                 [self evaluate];
+                ++_currentRow;
+                if((_currentRow % 2 == 0) && self.easyReading) {
+                    [self.easyReadingColor setFill];
+                    UIBezierPath *bp = [UIBezierPath bezierPathWithRect:self.frame];
+                    [bp fill];
+                } else {
+                    [self.fillColor setFill];
+                }
                 [super printSectionWithContext:context];
                 [self.delegate evaluate:dataSource];
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);

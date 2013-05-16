@@ -9,6 +9,10 @@
 #import "RSSection.h"
 #import "RSReportDelegate.h"
 
-@interface RSBodySection : RSSection
+@interface RSBodySection : RSSection {
+    NSInteger _currentRow;
+}
 
+@property (nonatomic, assign) BOOL easyReading;
+@property (nonatomic, strong) UIColor *easyReadingColor;
 @end
