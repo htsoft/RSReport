@@ -20,6 +20,7 @@
 @synthesize borderWidth = _borderWidth;
 @synthesize printableItems = _printableItems;
 @synthesize dataSource = _dataSource;
+@synthesize tag = _tag;
 
 - (id)init
 {
@@ -101,6 +102,38 @@
             [si evaluate];
         }
     }
+}
+
+- (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error {
+    CGFloat red,green,blue,alpha;
+    NSString *repStru = @"";
+
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    repStru = [repStru stringByAppendingFormat:@"%@<frame>\n",tabLevel];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<top>%f</top>\n",tabLevel,_frame.origin.y];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<left>%f</left>\n",tabLevel,_frame.origin.x];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<width>%f</width>\n",tabLevel,_frame.size.width];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<height>%f</height>\n",tabLevel,_frame.size.height];
+    repStru = [repStru stringByAppendingFormat:@"%@</frame>\n",tabLevel];
+    repStru = [repStru stringByAppendingFormat:@"%@<borderwidth>%f</borderwidth>\n",tabLevel,_borderWidth];
+    [_strokeColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    repStru = [repStru stringByAppendingFormat:@"%@<strokecolor>%f;%f;%f;%f</strokecolor>\n",tabLevel,red,green,blue,alpha];
+    [_fillColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    repStru = [repStru stringByAppendingFormat:@"%@<fillcolor>%f;%f;%f;%f</fillcolor>\n",tabLevel,red,green,blue,alpha];
+    repStru = [repStru stringByAppendingFormat:@"%@<borderstodraw>%d</borderstodraw>\n",tabLevel,_bordersToDraw];
+    repStru = [repStru stringByAppendingFormat:@"%@<tag>%d</tag>\n",tabLevel,_tag];
+    if([_printableItems count]>0) {
+        // Save items in section
+        repStru = [repStru stringByAppendingFormat:@"%@<printableitems>\n",tabLevel];
+        for(RSGenericItem *gi in _printableItems) {
+            repStru = [repStru stringByAppendingString:[gi addStructureWithLevel:level+1 insertHeader:YES error:error]];
+        }
+        repStru = [repStru stringByAppendingFormat:@"%@</printableitems>\n",tabLevel];
+    }
+    
+    return repStru;
 }
 
 @end

@@ -16,8 +16,10 @@
 @property (nonatomic, strong) UIColor *strokeColor;
 @property (nonatomic, strong) UIColor *fillColor;
 @property (nonatomic, strong) id<RSSectionDelegate> delegate;
+@property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGRect absoluteRect;
 
 - (void)printItemInContext:(CGContextRef)context;
+- (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error;
 
 @end

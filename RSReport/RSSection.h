@@ -10,6 +10,7 @@
 #import "RSReportDelegate.h"
 #import "RSTypes.h"
 #import "RSSectionDelegate.h"
+#import "RSPrintElements.h"
 
 @interface RSSection : NSObject <RSSectionDelegate>
 
@@ -19,10 +20,12 @@
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, assign) RSBorder bordersToDraw;
 @property (nonatomic, assign) CGFloat borderWidth;
-@property (nonatomic, strong) NSMutableArray *printableItems;
+@property (nonatomic, strong) RSPrintElements *printableItems;
 @property (nonatomic, strong) id<RSDataSource> dataSource;
+@property (nonatomic, assign) NSInteger tag;
 
 - (void)printSectionWithContext:(CGContextRef)context;
 - (void)evaluate;
+- (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error;
 
 @end

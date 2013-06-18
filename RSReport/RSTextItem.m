@@ -29,6 +29,7 @@
         _font = [UIFont systemFontOfSize:12];
         _attribute = nil;
         _text = nil;
+        _itemAlignment = RSItemAlignLeft;
     }
     
     return self;
@@ -58,7 +59,7 @@
             _text = [_textToPrint substringFromIndex:1];
     }
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.absoluteRect.size lineBreakMode:UILineBreakModeClip];
+    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:UILineBreakModeClip];
     // Calcola la posizione per l'allineamento
     CGPoint textPosition = CGPointMake(0, 0);
     switch (_itemAlignment) {
@@ -67,10 +68,10 @@
             textPosition.x = 0;
             break;
         case RSItemAlignCenter:
-            textPosition.x = (self.absoluteRect.size.width - textSize.width)/2;
+            textPosition.x = (self.frame.size.width - textSize.width)/2;
             break;
         case RSItemAlignRight:
-            textPosition.x = self.absoluteRect.size.width - textSize.width;
+            textPosition.x = self.frame.size.width - textSize.width;
             break;
             
         default:
@@ -78,13 +79,45 @@
             textPosition.x = 0;
             break;
     }
-    CGRect textRect = CGRectMake(self.absoluteRect.origin.x+textPosition.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
+    CGRect textRect = CGRectMake(self.frame.origin.x+textPosition.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
     [_textToPrint drawInRect:textRect withFont:_font];
 }
 
 - (void)evaluate 
 {
     NSLog(@"Called anchestor evaluate...");
+}
+
+- (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error
+{
+    NSString *repStru = @"";
+    NSInteger addLevel = 0;
+    if (insHeader)
+        addLevel = 1;
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@<rstextitem>\n",tabLevel];
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    }
+    if(_text) {
+        repStru = [repStru stringByAppendingFormat:@"%@<text>%@</text>\n",tabLevel,_text];
+    }
+    if(_attribute) {
+        repStru = [repStru stringByAppendingFormat:@"%@<attribute>%@</attribute>\n",tabLevel,_attribute];
+    }
+    repStru = [repStru stringByAppendingFormat:@"%@<font>\n",tabLevel];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<name>%@</name>\n",tabLevel,[_font fontName]];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<size>%f</size>\n",tabLevel,[_font pointSize]];
+    repStru = [repStru stringByAppendingFormat:@"%@</font>\n",tabLevel];
+    repStru = [repStru stringByAppendingFormat:@"%@<itemalignment>%d</itemalignment>\n",tabLevel,_itemAlignment];
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+addLevel insertHeader:NO error:error]];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@</rstextitem>\n",tabLevel];
+    }
+    return repStru;
 }
 
 @end

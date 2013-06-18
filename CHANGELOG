@@ -1,5 +1,11 @@
 This document contains the ChangeLog of RSReport project.
 
+== 0.6.0 == 18 Jun 2013
+- Added "tag" property to sections and items
+- The property "printableItems" of RSSection Class is now RSPrintElements type.
+- The class RSPrintElements is an NSMutableArray specialization which add elementWithTag method
+- The structure of the report could be exported into an XML file with RSX suffix
+
 == 0.5.2 == 16 May 2013
 - Added support for easy reading int RSBodySection
 

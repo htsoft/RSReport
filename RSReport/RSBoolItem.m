@@ -28,4 +28,32 @@
     [super printItemInContext:context];
 }
 
+- (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error
+{
+    NSString *repStru = @"";
+    NSInteger addLevel = 0;
+    if (insHeader)
+        addLevel = 1;
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@<rsboolitem>\n",tabLevel];
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    }
+    if(_value) {
+        NSString *valueStr = @"NO";
+        if([_value boolValue])
+            valueStr = @"YES";
+        repStru = [repStru stringByAppendingFormat:@"%@\t<value>%@</value>\n",tabLevel,valueStr];
+    }
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+addLevel insertHeader:NO error:error]];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@</rsboolitem>\n",tabLevel];
+    }
+    return repStru;
+}
+
+
 @end

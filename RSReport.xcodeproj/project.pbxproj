@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9013001175A52FF009AB6E9 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A9012FFF175A52FF009AB6E9 /* NSData+Base64.h */; };
+		A9013002175A52FF009AB6E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A9013000175A52FF009AB6E9 /* NSData+Base64.m */; };
 		A903DBC4165DB03500CC4CB5 /* RSBoolItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A903DBC2165DB03500CC4CB5 /* RSBoolItem.h */; };
 		A903DBC5165DB03500CC4CB5 /* RSBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A903DBC3165DB03500CC4CB5 /* RSBoolItem.m */; };
 		A903DBC8165DB1E600CC4CB5 /* RSCurrencyItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A903DBC6165DB1E600CC4CB5 /* RSCurrencyItem.h */; };
@@ -23,6 +25,8 @@
 		A93574B213FEA5F30087418D /* RSPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A93574B013FEA5F30087418D /* RSPageHeader.m */; };
 		A93574B513FEA60F0087418D /* RSPageFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A93574B313FEA60E0087418D /* RSPageFooter.h */; };
 		A93574B613FEA60F0087418D /* RSPageFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A93574B413FEA60F0087418D /* RSPageFooter.m */; };
+		A95AB086174FF04C00C27727 /* RSPrintElements.h in Headers */ = {isa = PBXBuildFile; fileRef = A95AB084174FF04C00C27727 /* RSPrintElements.h */; };
+		A95AB087174FF04C00C27727 /* RSPrintElements.m in Sources */ = {isa = PBXBuildFile; fileRef = A95AB085174FF04C00C27727 /* RSPrintElements.m */; };
 		A981DF2513F84D86003B5521 /* RSLineItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2313F84D86003B5521 /* RSLineItem.h */; };
 		A981DF2613F84D86003B5521 /* RSLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A981DF2413F84D86003B5521 /* RSLineItem.m */; };
 		A981DF2A13F873D7003B5521 /* RSImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A981DF2813F873D7003B5521 /* RSImageItem.h */; };
@@ -75,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9012FFF175A52FF009AB6E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		A9013000175A52FF009AB6E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		A903DBC2165DB03500CC4CB5 /* RSBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoolItem.h; sourceTree = "<group>"; };
 		A903DBC3165DB03500CC4CB5 /* RSBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoolItem.m; sourceTree = "<group>"; };
 		A903DBC6165DB1E600CC4CB5 /* RSCurrencyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCurrencyItem.h; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 		A93574B013FEA5F30087418D /* RSPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageHeader.m; sourceTree = "<group>"; };
 		A93574B313FEA60E0087418D /* RSPageFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPageFooter.h; sourceTree = "<group>"; };
 		A93574B413FEA60F0087418D /* RSPageFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPageFooter.m; sourceTree = "<group>"; };
+		A95AB084174FF04C00C27727 /* RSPrintElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPrintElements.h; sourceTree = "<group>"; };
+		A95AB085174FF04C00C27727 /* RSPrintElements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPrintElements.m; sourceTree = "<group>"; };
 		A981DF2313F84D86003B5521 /* RSLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLineItem.h; sourceTree = "<group>"; };
 		A981DF2413F84D86003B5521 /* RSLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLineItem.m; sourceTree = "<group>"; };
 		A981DF2813F873D7003B5521 /* RSImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSImageItem.h; sourceTree = "<group>"; };
@@ -164,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9012FFE175A52D1009AB6E9 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				A9012FFF175A52FF009AB6E9 /* NSData+Base64.h */,
+				A9013000175A52FF009AB6E9 /* NSData+Base64.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		A98DC84E13F7CD8B00A0BEE0 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +218,7 @@
 		A98DC85E13F7CD8B00A0BEE0 /* RSReport */ = {
 			isa = PBXGroup;
 			children = (
+				A9012FFE175A52D1009AB6E9 /* Base64 */,
 				A9D199371701B51B0012A924 /* Data Sources */,
 				A903DBD2165DB40600CC4CB5 /* RSAvgItem.h */,
 				A903DBD3165DB40600CC4CB5 /* RSAvgItem.m */,
@@ -245,6 +263,8 @@
 				A98DC89B13F7D29B00A0BEE0 /* RSTextItem.m */,
 				A981DF3413F91CC1003B5521 /* RSTypes.h */,
 				A98DC85F13F7CD8B00A0BEE0 /* Supporting Files */,
+				A95AB084174FF04C00C27727 /* RSPrintElements.h */,
+				A95AB085174FF04C00C27727 /* RSPrintElements.m */,
 			);
 			path = RSReport;
 			sourceTree = "<group>";
@@ -319,6 +339,8 @@
 				A903DBD8165DB48E00CC4CB5 /* RSLookupArray.h in Headers */,
 				A9D199351701AF5C0012A924 /* RSDictionaryArrayDataSource.h in Headers */,
 				A9D1993A1701B5A40012A924 /* RSCoreDataDataSource.h in Headers */,
+				A95AB086174FF04C00C27727 /* RSPrintElements.h in Headers */,
+				A9013001175A52FF009AB6E9 /* NSData+Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +464,8 @@
 				A903DBD9165DB48E00CC4CB5 /* RSLookupArray.m in Sources */,
 				A9D199361701AF5C0012A924 /* RSDictionaryArrayDataSource.m in Sources */,
 				A9D1993B1701B5A40012A924 /* RSCoreDataDataSource.m in Sources */,
+				A95AB087174FF04C00C27727 /* RSPrintElements.m in Sources */,
+				A9013002175A52FF009AB6E9 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

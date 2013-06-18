@@ -34,5 +34,6 @@
 - (BOOL)makeReport;
 - (NSString *)getFullPathPDFFileName;
 - (NSURL *)getPDFURL;
+- (BOOL)saveStructureToURL:(NSURL *)destinationURL error:(NSError *__autoreleasing *)error;
 
 @end

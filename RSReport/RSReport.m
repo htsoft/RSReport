@@ -12,6 +12,8 @@
 #import "RSPageFooter.h"
 #import "RSPageHeader.h"
 
+#define RSXVERSION 1
+
 enum
 {
 	DirectoryLocationErrorNoPathFound,
@@ -189,6 +191,44 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     }
 }
 
+- (BOOL)saveStructureToURL:(NSURL *)destinationURL error:(NSError *__autoreleasing *)error {
+    if (error) {
+        error = nil;
+    }
+    NSString *repStru = @"<?xml version='1.0' encoding='UTF-8' ?>\n";
+    BOOL ret = YES;
+    repStru = [repStru stringByAppendingString:@"<rsreport>\n"];
+    // Writes the data structure
+    repStru = [repStru stringByAppendingFormat:@"\t<version>%d</version>\n",RSXVERSION];
+    repStru = [repStru stringByAppendingString:@"\t<pagesize>\n"];
+    repStru = [repStru stringByAppendingFormat:@"\t\t<width>%f</width>\n",_pageSize.size.width];
+    repStru = [repStru stringByAppendingFormat:@"\t\t<height>%f</height>\n",_pageSize.size.height];
+    repStru = [repStru stringByAppendingString:@"\t</pagesize>\n"];
+    repStru = [repStru stringByAppendingFormat:@"\t<filename>%@</filename>\n",_pdfFileName];
+    if(_reportHeader) {
+        // writes the XML section for the Report Header
+        repStru = [repStru stringByAppendingString:[_reportHeader addStructureWithLevel:1 error:error]];
+    }
+    if(_pageHeader) {
+        // writes the XML section for the Page Header
+        repStru = [repStru stringByAppendingString:[_pageHeader addStructureWithLevel:1 error:error]];
+    }
+    if(_bodySection) {
+        // writes the XML section for the Report Body
+        repStru = [repStru stringByAppendingString:[_bodySection addStructureWithLevel:1 error:error]];
+    }
+    if(_pageFooter) {
+        // writes the XML section for the Page Footer
+        repStru = [repStru stringByAppendingString:[_pageFooter addStructureWithLevel:1 error:error]];
+    }
+    // Close the rsreport block
+    if (ret) {
+        repStru = [repStru stringByAppendingString:@"</rsreport>\n"];
+        ret = [repStru writeToURL:destinationURL atomically:YES encoding:NSUTF8StringEncoding error:error];
+    }
+    NSLog(@"%@",repStru);
+    return ret;
+}
 
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory
                            inDomain:(NSSearchPathDomainMask)domainMask

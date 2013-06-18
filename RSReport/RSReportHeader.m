@@ -29,4 +29,23 @@
         [self.delegate updateCurrentPage];
 }
 
+- (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error {
+    NSString *repStru = @"";
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    repStru = [repStru stringByAppendingFormat:@"%@<rsreportheader>\n",tabLevel];
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+1 error:error]];
+    if(!error) {
+        NSString *newPage = @"NO";
+        if(_newPageAfterPrint)
+            newPage = @"YES";
+        repStru = [repStru stringByAppendingFormat:@"%@\t<newpageafterprint>%@</newpageafterprint>\n",tabLevel,newPage];
+        repStru = [repStru stringByAppendingFormat:@"%@</rsreportheader>\n",tabLevel];
+    }
+    
+    return repStru;
+}
+
 @end

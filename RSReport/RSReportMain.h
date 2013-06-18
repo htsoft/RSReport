@@ -33,6 +33,7 @@
 #import "RSAvgItem.h"
 #import "RSLookupArray.h"
 #import "RSDataSource.h"
+#import "RSPrintElements.h"
 
 #endif
 

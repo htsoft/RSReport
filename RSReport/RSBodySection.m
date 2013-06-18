@@ -60,5 +60,26 @@
     }
 }
 
+- (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error {
+    NSString *repStru = @"";
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    repStru = [repStru stringByAppendingFormat:@"%@<rsbodysection>\n",tabLevel];
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+1 error:error]];
+    if(!error) {
+        NSString *easyReading = @"NO";
+        CGFloat red,green,blue,alpha;
+        [_easyReadingColor getRed:&red green:&green blue:&blue alpha:&alpha];
+        if(_easyReading)
+            easyReading = @"YES";
+        repStru = [repStru stringByAppendingFormat:@"%@\t<easyreading>%@</easyreading>\n",tabLevel,easyReading];
+        repStru = [repStru stringByAppendingFormat:@"%@\t<easyreadingcolor>%f;%f;%f;%f</easyreadingcolor>\n",tabLevel,red,green,blue,alpha];
+        repStru = [repStru stringByAppendingFormat:@"%@</rsbodysection>\n",tabLevel];
+    }
+    
+    return repStru;
+}
 
 @end

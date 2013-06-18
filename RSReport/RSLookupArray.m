@@ -43,4 +43,34 @@
     [super printItemInContext:context];
 }
 
+- (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error
+{
+    NSString *repStru = @"";
+    NSInteger addLevel = 0;
+    if (insHeader)
+        addLevel = 1;
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@<rslookuparray>\n",tabLevel];
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    }
+    if(_defaultValue) {
+        repStru = [repStru stringByAppendingFormat:@"%@<defaultvalue>%@</defaultvalue>\n",tabLevel,_defaultValue];
+    }
+    if(_lookupArray) {
+        repStru = [repStru stringByAppendingFormat:@"%@<items>\n",tabLevel];
+        for(NSString *item in _lookupArray)
+            repStru = [repStru stringByAppendingFormat:@"%@\t<item>%@</item>\n",tabLevel,item];
+        repStru = [repStru stringByAppendingFormat:@"%@</items>\n",tabLevel];
+    }
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+addLevel insertHeader:NO error:error]];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@</rslookuparray>\n",tabLevel];
+    }
+    return repStru;
+}
+
 @end

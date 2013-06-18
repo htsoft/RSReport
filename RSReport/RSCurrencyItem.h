@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSLocale *locale;
 @property (nonatomic, strong) NSNumber *value;
+@property (nonatomic, assign) NSInteger numDec;
 
 @end

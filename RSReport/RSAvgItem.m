@@ -38,7 +38,6 @@
 - (void)evaluate {
     NSObject *value = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {
-        NSLog(@"Called evaluate...");
         double sum = [_currentSum doubleValue] + [((NSNumber *)value) doubleValue];
         _currentSum = [NSNumber numberWithDouble:sum];
         ++_itemCount;
@@ -63,6 +62,33 @@
         self.text = [average stringValue];
     }
     [super printItemInContext:context];
+}
+
+- (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error
+{
+    NSString *repStru = @"";
+    NSInteger addLevel = 0;
+    if (insHeader)
+        addLevel = 1;
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@<rsavgitem>\n",tabLevel];
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    }
+    NSString *isCurrencyStr = @"NO";
+    if(_isCurrency)
+        isCurrencyStr = @"YES";
+    if(_locale)
+        repStru = [repStru stringByAppendingFormat:@"%@\t<locale>%@</locale>\n",tabLevel,[_locale localeIdentifier]];
+    repStru = [repStru stringByAppendingFormat:@"%@\t<iscurrency>%@</iscurrency>\n",tabLevel,isCurrencyStr];
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+addLevel insertHeader:NO error:error]];
+    if(insHeader) {
+        repStru = [repStru stringByAppendingFormat:@"%@</rsavgitem>\n",tabLevel];
+    }
+    return repStru;
 }
 
 @end

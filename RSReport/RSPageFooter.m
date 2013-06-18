@@ -35,4 +35,23 @@
     }
 }
 
+- (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error {
+    NSString *repStru = @"";
+    
+    NSString *tabLevel = @"";
+    for(NSInteger i=0;i<level;i++)
+        tabLevel = [tabLevel stringByAppendingString:@"\t"];
+    repStru = [repStru stringByAppendingFormat:@"%@<rspagefooter>\n",tabLevel];
+    repStru = [repStru stringByAppendingString:[super addStructureWithLevel:level+1 error:error]];
+    if(!error) {
+        NSString *newPage = @"NO";
+        if(_printOnLastPage)
+            newPage = @"YES";
+        repStru = [repStru stringByAppendingFormat:@"%@\t<printonlastpage>%@</printonlastpage>\n",tabLevel,newPage];
+        repStru = [repStru stringByAppendingFormat:@"%@</rspagefooter>\n",tabLevel];
+    }
+    
+    return repStru;
+}
+
 @end
