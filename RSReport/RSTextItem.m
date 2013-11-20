@@ -35,12 +35,46 @@
     return self;
 }
 
+- (NSString *)writeItemToString {
+    NSString *stringItem = [super writeItemToString];
+    if(!self.text) {
+        NSObject *value = [[self.delegate getDataSource] getAttributeByPath:_attribute];
+        if(value) {
+            if ([value isKindOfClass:[NSString class]]) {
+                NSString *testo = (NSString *)value;
+                if([testo length]>0) {
+                    NSString *primoCar = [testo substringToIndex:1];
+                    if([primoCar isEqualToString:@"\n"])
+                        testo = [testo substringFromIndex:1];
+                }
+                self.textToPrint = testo;
+            }
+            if ([value isKindOfClass:[NSNumber class]]) {
+                self.textToPrint = [((NSNumber *)value) stringValue];
+            }
+        } else {
+            self.textToPrint = nil;
+        }
+    } else {
+        self.textToPrint = [NSString stringWithString:self.text];
+    }
+    stringItem = [NSString stringWithFormat:@"%@;%@",stringItem,self.textToPrint];
+    return stringItem;
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     if(!self.text) {
         NSObject *value = [[self.delegate getDataSource] getAttributeByPath:_attribute];
         if(value) {
-            if ([value isKindOfClass:[NSString class]])
-                self.textToPrint = (NSString *)value;
+            if ([value isKindOfClass:[NSString class]]) {
+                NSString *testo = (NSString *)value;
+                if([testo length]>0) {
+                    NSString *primoCar = [testo substringToIndex:1];
+                    if([primoCar isEqualToString:@"\n"])
+                        testo = [testo substringFromIndex:1];
+                }
+                self.textToPrint = testo;
+            }
             if ([value isKindOfClass:[NSNumber class]]) {
                 self.textToPrint = [((NSNumber *)value) stringValue];
             }
@@ -53,13 +87,8 @@
     
     [super printItemInContext:context];
     
-    if ([_textToPrint length]>0) {
-        NSString *primoCar = [_textToPrint substringToIndex:1];
-        if ([primoCar isEqualToString:@"\n"])
-            _text = [_textToPrint substringFromIndex:1];
-    }
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:UILineBreakModeClip];
+    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByClipping];
     // Calcola la posizione per l'allineamento
     CGPoint textPosition = CGPointMake(0, 0);
     switch (_itemAlignment) {
@@ -85,7 +114,7 @@
 
 - (void)evaluate 
 {
-    NSLog(@"Called anchestor evaluate...");
+    //NSLog(@"Called anchestor evaluate...");
 }
 
 - (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error

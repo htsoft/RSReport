@@ -35,6 +35,17 @@
     return self;
 }
 
+- (NSString *)writeSectionToString {
+    NSString *stringSection = @"";
+    // Draw the items into the section
+    for (RSGenericItem *gi in _printableItems) {
+        gi.delegate = self;
+        stringSection = [stringSection stringByAppendingString:[gi writeItemToString]];
+    }
+    stringSection = [stringSection stringByAppendingString:@"\n"];
+    return stringSection;
+}
+
 - (void)printSectionWithContext:(CGContextRef)context {
     [_strokeColor setStroke];
     [_fillColor setFill];

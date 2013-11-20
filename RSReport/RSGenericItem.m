@@ -16,6 +16,7 @@
 @synthesize delegate = _delegate;
 @synthesize absoluteRect = _absoluteRect;
 @synthesize tag = _tag;
+@synthesize columnName = _columnName;
 
 - (id)init
 {
@@ -24,6 +25,7 @@
         _strokeColor = [UIColor blackColor];
         _fillColor = [UIColor blackColor];
         _tag = 0;
+        _columnName = nil;
     }
     
     return self;
@@ -34,6 +36,11 @@
     [_fillColor setFill];
     CGPoint referencePoint = [_delegate getReferenceSectionPoint];
     _absoluteRect = CGRectMake(_frame.origin.x + referencePoint.x, _frame.origin.y + referencePoint.y, _frame.size.width, _frame.size.height);
+}
+
+- (NSString *)writeItemToString {
+    NSString *stringItem = @"";
+    return stringItem;
 }
 
 - (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error

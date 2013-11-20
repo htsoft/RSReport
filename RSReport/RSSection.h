@@ -25,6 +25,7 @@
 @property (nonatomic, assign) NSInteger tag;
 
 - (void)printSectionWithContext:(CGContextRef)context;
+- (NSString *)writeSectionToString;
 - (void)evaluate;
 - (NSString *)addStructureWithLevel:(NSInteger)level error:(NSError *__autoreleasing *)error;
 

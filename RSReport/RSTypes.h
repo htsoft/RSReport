@@ -31,4 +31,20 @@ typedef enum {
 
 typedef NSInteger RSItemAlignment;
 
+typedef enum {
+    RSReportPDFType = 0,
+    RSReportCSVType = 1
+} RSReportTypes;
+
+typedef NSInteger RSReportType;
+
+typedef enum {
+    RSNewLineCR = 0,
+    RSNewLineLF = 1,
+    RSNewLineCRLF = 2,
+    RSNewLineLFCR = 3
+} RSNewLineSeparatorTypes;
+
+typedef NSInteger RSNewLineSeparator;
+
 #endif

@@ -24,21 +24,30 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 
 @interface RSReport ()
 
+@property (nonatomic, strong) NSString *fileName;
+
 - (NSString *)applicationSupportDirectory;
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask
                 appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
+
+- (BOOL)makePDFReport;
+- (BOOL)makeCSVReport;
 
 @end
 
 @implementation RSReport
 
-@synthesize pdfFileName = _pdfFileName;
+@synthesize fileName = _fileName;
 @synthesize pageSize = _pageSize;
 @synthesize dataSource = _dataSource;
 @synthesize reportHeader = _reportHeader;
 @synthesize bodySection = _bodySection;
 @synthesize pageHeader = _pageHeader;
 @synthesize pageFooter = _pageFooter;
+@synthesize reportType = _reportType;
+@synthesize newLineSeparator = _newLineSeparator;
+@synthesize columSeparator = _columSeparator;
+@synthesize stringDelimiter = _stringDelimiter;
 
 - (id)init
 {
@@ -46,11 +55,12 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     if (self) {
         CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
         CFStringRef newUniqueIdString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
-        _pdfFileName = [NSString stringWithFormat:@"%@.pdf",(__bridge NSString *)newUniqueIdString];
+        _fileName = [NSString stringWithFormat:@"%@",(__bridge NSString *)newUniqueIdString];
         CFRelease(newUniqueId);
         CFRelease(newUniqueIdString);
         _pageSize = CGRectMake(0, 0, 612, 792);
         _documentDirectory = [self applicationSupportDirectory];
+        _reportType = RSReportPDFType;
     }
     
     return self;
@@ -59,7 +69,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame {
     self = [super init];
     if (self) {
-        _pdfFileName = fileName;
+        _fileName = fileName;
         _pageSize = frame;
     }
     
@@ -67,8 +77,15 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (BOOL)makeReport {
+    if(self.reportType == RSReportPDFType)
+        return [self makePDFReport];
+    else
+        return [self makeCSVReport];
+}
+
+- (BOOL)makePDFReport {
     // File name definition
-    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf",_fileName]];
     // If already exists then delete
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName])
@@ -82,7 +99,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     
     // Obtain current context for PDF file
     _pdfContext = UIGraphicsGetCurrentContext();
-
+    
     // Start first page
     if (_pageHeader)
         _pageHeader.delegate = self;
@@ -98,7 +115,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
         [_reportHeader printSectionWithContext:_pdfContext];
     }
     
-    // 
+    //
     
     // If Body is assigned the draw it
     if (_bodySection) {
@@ -114,12 +131,37 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     // if Report footer is assigned then draw it
     
     
-    // Close the context and the file 
+    // Close the context and the file
     UIGraphicsEndPDFContext();
     
     // Return YES to confirm the succeeded operation
     return YES;
 }
+
+- (BOOL)makeCSVReport{
+    BOOL retValue = YES;
+    // File name definition
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.csv",_fileName]];
+    // If already exists then delete
+    NSError *error;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fileName])
+        [[NSFileManager defaultManager] removeItemAtPath:fileName error:&error];
+    // If body is assigned then write the informations
+    // starting by the headers
+    if(_bodySection) {
+        _bodySection.delegate = self;
+        NSString *bodySectionString =  [_bodySection writeSectionToString];
+        // Writes the BodySectionString to disk
+        NSError *error;
+        [bodySectionString writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        if(error) {
+            retValue = NO;
+            NSLog(@"Error writing file: %@", error.localizedDescription);
+        }
+    }
+    return retValue;
+}
+
 
 - (NSInteger)getCurrentPageNumber {
     return _currentPage;
@@ -156,12 +198,22 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 }
 
 - (NSString *)getFullPathPDFFileName {
-    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:_pdfFileName];
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf",_fileName]];
     return fileName;
 }
 
 - (NSURL *)getPDFURL {
-    NSURL *returnURL = [NSURL fileURLWithPath:[_documentDirectory stringByAppendingPathComponent:_pdfFileName]];
+    NSURL *returnURL = [NSURL fileURLWithPath:[self getFullPathPDFFileName]];
+    return returnURL;
+}
+
+- (NSString *)getFullPathCSVFileName {
+    NSString *fileName = [_documentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.csv",_fileName]];
+    return fileName;
+}
+
+- (NSURL *)getCSVURL {
+    NSURL *returnURL = [NSURL fileURLWithPath:[self getFullPathCSVFileName]];
     return returnURL;
 }
 
@@ -204,7 +256,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     repStru = [repStru stringByAppendingFormat:@"\t\t<width>%f</width>\n",_pageSize.size.width];
     repStru = [repStru stringByAppendingFormat:@"\t\t<height>%f</height>\n",_pageSize.size.height];
     repStru = [repStru stringByAppendingString:@"\t</pagesize>\n"];
-    repStru = [repStru stringByAppendingFormat:@"\t<filename>%@</filename>\n",_pdfFileName];
+    repStru = [repStru stringByAppendingFormat:@"\t<filename>%@</filename>\n",_fileName];
     if(_reportHeader) {
         // writes the XML section for the Report Header
         repStru = [repStru stringByAppendingString:[_reportHeader addStructureWithLevel:1 error:error]];

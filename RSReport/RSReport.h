@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RSReportDelegate.h"
 #import "RSDataSource.h"
+#import "RSTypes.h"
 
 @class RSReportHeader;
 @class RSBodySection;
@@ -22,18 +23,24 @@
     NSInteger _currentVPosition;
 }
 
-@property (nonatomic, strong) NSString *pdfFileName;
 @property (nonatomic, assign) CGRect pageSize;
 @property (nonatomic, strong) id<RSDataSource> dataSource;
 @property (nonatomic, strong) RSReportHeader *reportHeader;
 @property (nonatomic, strong) RSBodySection *bodySection;
 @property (nonatomic, strong) RSPageHeader *pageHeader;
 @property (nonatomic, strong) RSPageFooter *pageFooter;
+@property (assign) RSReportType reportType;
+@property (assign) RSNewLineSeparator newLineSeparator;
+@property (nonatomic, strong) NSString *columSeparator;
+@property (nonatomic, strong) NSString *stringDelimiter;
+
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
 - (BOOL)makeReport;
 - (NSString *)getFullPathPDFFileName;
 - (NSURL *)getPDFURL;
+- (NSString *)getFullPathCSVFileName;
+- (NSURL *)getCSVURL;
 - (BOOL)saveStructureToURL:(NSURL *)destinationURL error:(NSError *__autoreleasing *)error;
 
 @end

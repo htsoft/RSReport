@@ -26,6 +26,32 @@
     return self;
 }
 
+- (NSString *)writeSectionToString {
+    NSString *sectionString = @"";
+    // Prepare CSV headers
+    // Draw the items into the section
+    for (RSGenericItem *gi in self.printableItems) {
+        sectionString = [NSString stringWithFormat:@"%@;%@",sectionString,gi.columnName];
+    }
+    sectionString = [sectionString stringByAppendingString:@"\n"];
+    
+    // Main cycle into data
+    id<RSDataSource> dataSource = [self.delegate getDataSource];
+    BOOL success = [dataSource openStream];
+    if (success) {
+        NSInteger sections = [dataSource numberOfSections];
+        for(NSInteger currentSection=0;currentSection<sections;currentSection++) {
+            BOOL rowAvailable = [dataSource firstItemInSection:currentSection];
+            while(rowAvailable) {
+                sectionString = [sectionString stringByAppendingString:[super writeSectionToString]];
+                [self.delegate evaluate:dataSource];
+                rowAvailable = [dataSource hasNextInSection:currentSection];
+            }
+        }
+    }
+    return sectionString;
+}
+
 - (void)printSectionWithContext:(CGContextRef)context {
     // Save the original frame
     CGRect originalFrame = self.frame;

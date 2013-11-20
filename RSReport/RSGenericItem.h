@@ -18,8 +18,10 @@
 @property (nonatomic, strong) id<RSSectionDelegate> delegate;
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGRect absoluteRect;
+@property (nonatomic, strong) NSString *columnName;
 
 - (void)printItemInContext:(CGContextRef)context;
 - (NSString *)addStructureWithLevel:(NSInteger)level insertHeader:(BOOL)insHeader error:(NSError *__autoreleasing *)error;
+- (NSString *)writeItemToString;
 
 @end
