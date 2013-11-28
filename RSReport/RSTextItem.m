@@ -87,29 +87,28 @@
     
     [super printItemInContext:context];
     
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGSize textSize = [_textToPrint sizeWithFont:_font constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByClipping];
-    // Calcola la posizione per l'allineamento
-    CGPoint textPosition = CGPointMake(0, 0);
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setValue:_font forKey:NSFontAttributeName];
+    NSMutableParagraphStyle *pStyle = [[NSMutableParagraphStyle alloc] init];
+    pStyle.lineBreakMode = NSLineBreakByWordWrapping;
     switch (_itemAlignment) {
         case RSItemAlignLeft:
-            // In caso di allineamento a sinistra non deve compiere alcuna operazione
-            textPosition.x = 0;
+            pStyle.alignment = NSTextAlignmentLeft;
             break;
         case RSItemAlignCenter:
-            textPosition.x = (self.frame.size.width - textSize.width)/2;
+            pStyle.alignment = NSTextAlignmentCenter;
             break;
         case RSItemAlignRight:
-            textPosition.x = self.frame.size.width - textSize.width;
+            pStyle.alignment = NSTextAlignmentRight;
             break;
-            
         default:
-            // Nel caso non sia assegnato nessun valore valido allinea a sinistra
-            textPosition.x = 0;
+            pStyle.alignment = NSTextAlignmentNatural;
             break;
     }
-    CGRect textRect = CGRectMake(self.frame.origin.x+textPosition.x, self.absoluteRect.origin.y, textSize.width, textSize.height);
-    [_textToPrint drawInRect:textRect withFont:_font];
+    [attributes setValue:pStyle forKey:NSParagraphStyleAttributeName];
+    CGRect textRect = self.frame;
+    textRect.origin.y = self.absoluteRect.origin.y;
+    [_textToPrint drawInRect:textRect withAttributes:attributes];
 }
 
 - (void)evaluate 
