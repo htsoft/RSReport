@@ -29,7 +29,7 @@
         _fillColor = [UIColor whiteColor];
         _strokeColor = [UIColor blackColor];
         _borderWidth = 1.0;
-        _printableItems = [RSPrintElements array];
+        _printableItems = (RSPrintElements *)[NSMutableArray array];
     }
     
     return self;
