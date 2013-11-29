@@ -14,6 +14,27 @@
 @synthesize value = _value;
 @synthesize numDec = _numDec;
 
+- (NSString *)writeItemToString {
+    NSObject *currentValue = nil;
+    if(!self.locale)
+        self.locale = [NSLocale currentLocale];
+    if (!self.value && self.attribute)
+        currentValue = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
+    else
+        currentValue = self.value;
+    NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
+    [numFmt setLocale:self.locale];
+    [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
+    if(_numDec>0)
+        [numFmt setMinimumFractionDigits:_numDec];
+    if ([currentValue isKindOfClass:[NSNumber class]]) {
+        self.text = [numFmt stringFromNumber:(NSNumber *)currentValue];
+    } else {
+        self.text = @"";
+    }
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     NSObject *currentValue = nil;
     if(!self.locale)
