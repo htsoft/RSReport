@@ -1,5 +1,10 @@
 This document contains the ChangeLog of RSReport project.
 
+== 0.7.0 == 29 Nov 2013
+- Updated minimum sdk version to 6.0
+- Changed randering on RSTextItem with new supported format
+- Added Print to CSV file routines (actually in beta).
+
 == 0.6.0 == 18 Jun 2013
 - Added "tag" property to sections and items
 - The property "printableItems" of RSSection Class is now RSPrintElements type.

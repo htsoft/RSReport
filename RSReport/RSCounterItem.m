@@ -38,6 +38,12 @@
     return  _counter;
 }
 
+- (NSString *)writeItemToString {
+    ++_counter;
+    self.text = [NSString stringWithFormat:@"%d",_counter];
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     ++_counter;
     self.text = [NSString stringWithFormat:@"%d",_counter];

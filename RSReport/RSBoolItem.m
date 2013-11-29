@@ -12,6 +12,22 @@
 
 @synthesize value = _value;
 
+- (NSString *)writeItemToString {
+    NSObject *currentValue;
+    if(!self.value)
+        currentValue = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
+    else
+        currentValue = self.value;
+    if ([currentValue isKindOfClass:[NSNumber class]]) {
+        if ([((NSNumber *)currentValue) boolValue]) {
+            self.text = @"ON";
+        } else {
+            self.text = @"OFF";
+        }
+    }
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     NSObject *currentValue;
     if(!self.value)

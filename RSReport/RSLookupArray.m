@@ -24,6 +24,25 @@
     return self;
 }
 
+- (NSString *)writeItemToString {
+    NSObject *value = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
+    if ([value isKindOfClass:[NSNumber class]]) {
+        if(self.lookupArray) {
+            NSInteger indice = [(NSNumber *)value integerValue];
+            if(indice<0 || indice>=[self.lookupArray count]) {
+                self.text = self.defaultValue;
+            } else {
+                self.text = (NSString *)[self.lookupArray objectAtIndex:indice];
+            }
+        } else {
+            self.text = self.defaultValue;
+        }
+    } else {
+        self.text = self.defaultValue;
+    }
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     NSObject *value = [[self.delegate getDataSource] getAttributeByPath:self.attribute];
     if ([value isKindOfClass:[NSNumber class]]) {

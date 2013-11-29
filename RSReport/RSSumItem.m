@@ -41,6 +41,20 @@
     }
 }
 
+- (NSString *)writeItemToString {
+    if (_isCurrency) {
+        if(!self.locale)
+            self.locale = [NSLocale currentLocale];
+        NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
+        [numFmt setLocale:self.locale];
+        [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
+        self.text = [numFmt stringFromNumber:_currentSum];
+    } else {
+        self.text = [_currentSum stringValue];
+    }
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     if (_isCurrency) {
         if(!self.locale)

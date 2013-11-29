@@ -44,6 +44,26 @@
     }
 }
 
+- (NSString *)writeItemToString {
+    NSInteger currentItemCount = 0;
+    if (_itemCount==0)
+        currentItemCount = 1;
+    else
+        currentItemCount = _itemCount;
+    NSNumber *average = [NSNumber numberWithDouble:[_currentSum doubleValue]/currentItemCount];
+    if (_isCurrency) {
+        if(!self.locale)
+            self.locale = [NSLocale currentLocale];
+        NSNumberFormatter *numFmt = [[NSNumberFormatter alloc] init];
+        [numFmt setLocale:self.locale];
+        [numFmt setNumberStyle:NSNumberFormatterCurrencyStyle];
+        self.text = [numFmt stringFromNumber:average];
+    } else {
+        self.text = [average stringValue];
+    }
+    return [super writeItemToString];
+}
+
 - (void)printItemInContext:(CGContextRef)context {
     NSInteger currentItemCount = 0;
     if (_itemCount==0)
