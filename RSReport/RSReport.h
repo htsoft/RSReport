@@ -33,6 +33,7 @@
 @property (assign) RSNewLineSeparator newLineSeparator;
 @property (nonatomic, strong) NSString *columSeparator;
 @property (nonatomic, strong) NSString *stringDelimiter;
+@property (nonatomic, strong) NSString *fileName;
 
 
 - (id)initWithFileName:(NSString *)fileName andPageSize:(CGRect)frame;
