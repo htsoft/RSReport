@@ -108,6 +108,7 @@
     [attributes setValue:pStyle forKey:NSParagraphStyleAttributeName];
     CGRect textRect = self.frame;
     textRect.origin.y = self.absoluteRect.origin.y;
+    //[_textToPrint drawInRect:textRect withFont:_font lineBreakMode:NSLineBreakByWordWrapping];
     [_textToPrint drawInRect:textRect withAttributes:attributes];
 }
 
